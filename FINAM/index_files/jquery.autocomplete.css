@@ -1,0 +1,117 @@
+.ac_results {
+	border: 1px solid #e0e0e0;
+	background-color: white;
+	color:#000;
+	overflow: hidden;
+	z-index: 999;
+	margin-top: -1px;
+	min-width:280px;
+	-webkit-box-shadow:  0px 10px 10px 0px #d8d8d8; box-shadow:  0px 10px 10px 0px #d8d8d8;
+}
+.first_strong
+{
+    font-weight:bold;
+    color:Black;
+}
+.ac_results ul {
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0;
+	padding: 12px 15px 12px;
+	cursor: default;
+	display: block;
+	cursor:pointer;
+    font-size: 13px;
+	border-bottom: 1px dotted #b3b3b3;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	
+	overflow: hidden;
+}
+#txtSearch
+{
+    /*font: 76% Arial, sans-serif;*/
+}
+.shadow_cl
+{
+    background-color:Gray;
+    height:15px;
+}
+
+.addition
+{
+    border-top:1px soild black;
+    margin-top:10em;
+
+}
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+/*.ac_odd {
+	background-color: #f9f9f9;
+}
+
+.ac_even {
+	background-color: #f1f0f1;
+}*/
+
+.ac_odd_addition {
+	background-color: #eee;
+	/*margin-top:1em;*/
+}
+
+.ac_over {
+	background-color: #FFF3CB;
+	color: black;
+}
+
+.stepInto
+{
+    	margin:0 0 0 0;
+    	padding:0 0 0 0;
+    	/*font-size:65%;*/
+    	text-align:justify;
+    	display:block;
+    	position:relative;
+
+}
+
+td.stepB
+{
+
+	font:100%;
+
+}
+.stepInfo td { padding: 0 !important; text-align: left !important}
+.stepIntoSmlst
+{
+	border-top: 1px solid #e0e0e0; font-size: 1px; margin-top: -1px; height: 1px; margin-bottom: -1px
+}
+
+.stepIntoSmlst hr
+{
+    	color: #f5f5f5;
+}
+
+.main_item
+{
+    background-color:#dfdfdf;
+}
+
+.stepBold
+{
+	font-weight:bold;
+}

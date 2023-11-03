@@ -1,0 +1,1295 @@
+ui-dialog/*=utils */
+BUTTON::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+.hasPlaceholder {
+	color: #777;
+}
+
+/*=jquery */
+.ui-dialog {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #fff;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius:5px;
+	-khtml-border-radius: 5px;
+	box-shadow: 0 0 5px black; /* Параметры тени */
+	box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Firefox */
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+	z-index: 10001;
+}
+.ui-dialog-titlebar {
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	padding: 0 10px;
+	background: #ddd !important;
+	position: absolute;
+	border: 0;
+	top: 0;
+	left: 0;
+}
+.ui-dialog-title {
+	border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	color: #000;
+	font: normal 13px Arial;
+}
+A.ui-dialog-titlebar-close:link {
+	display: none;
+}
+.ui-dialog-content {
+	margin: 10px auto;
+	background: #fff;
+	min-height: 20px !important;
+	overflow: hidden !important;
+}
+.ui-widget-overlay {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+	z-index: 10;
+}
+.ui-accordion {
+	width: auto !important;
+}
+.ui-widget {
+	font-family: arial !important;
+	font-size: auto !important;
+}
+.ui-helper-reset {
+	line-height: auto !important;
+}
+
+
+/*=finam-ui-dialog-titlebar-close */
+.finam-ui-dialog-titlebar-close {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	display: none;
+	z-index: 2000;
+}
+.finam-ui-dialog-titlebar-close A {
+	text-indent: -1000px;
+	display: block;
+	background: url(/i/i/panel-close.png) -35px 0;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.finam-ui-dialog-titlebar-close A:hover {
+	background: url(/i/i/panel-close.png) -35px -25px;
+}
+
+/*=finam-ui-ta-indicator */
+.finam-ui-ta-indicator {
+	height: 31px;
+	background: url(/i/i/lta/ta-indicator.png) no-repeat top right;
+	overflow: hidden;
+	display: inline-block;
+	margin-bottom: 3px;
+	font-size: 90%;
+	position: relative;
+}
+.finam-ui-ta-indicator-arrow {
+	cursor: pointer;
+	height: 31px;
+	line-height: 31px;
+	width: 12px;
+	padding: 0 2px 0 4px;
+	background: url(/i/i/lta/ta-indicator.png) no-repeat top left;
+	float: left;
+	text-align: center;
+	font-size: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.finam-ui-ta-indicator-title {
+	zfloat: left;
+	height: 28px;
+	line-height: 28px;
+	cursor: default;
+	font-weight: bold;
+	overflow: hidden;
+	padding-left: 20px;
+}
+.finam-ui-ta-indicator-period {
+	width: 46px;
+	height: 28px;
+	line-height: 28px;
+	float: left;
+	text-align: center;
+	background: url(/i/i/lta/scombobox.gif) no-repeat top left;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: none;
+}
+.finam-ui-ta-indicator-period INPUT {
+	width: 28px !important;
+	float: left;
+}
+.finam-ui-ta-indicator-period-value {
+	width: 43px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	text-align: center;
+	overflow: hidden;
+	float: left;
+	cursor: pointer;
+	padding-left: 3px;
+	font-weight: bold;
+}
+.finam-ui-ta-indicator .edit INPUT {
+	display: block;
+	text-align: right;
+}
+.finam-ui-ta-indicator .edit .finam-ui-ta-indicator-period-value {
+	display: none;
+}
+.finam-ui-ta-indicator .view INPUT {
+	display: none;
+}
+.finam-ui-ta-indicator .view .finam-ui-ta-indicator-period-value {
+	display: block;
+}
+.over .finam-ui-ta-indicator-title,
+.over .finam-ui-ta-indicator-arrow,
+.over .finam-ui-ta-indicator-period-value
+{
+	color: red;
+}
+
+
+/*=finam-ui-dropdown-list */
+.finam-ui-dropdown-list {
+	position: absolute;
+	background: #fff;
+	z-index: 1000;
+	text-align: left;
+}
+.finam-ui-dropdown-list DIV {
+	padding: 1px;
+	border: solid 1px #999;
+}
+.finam-ui-dropdown-list UL {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.finam-ui-dropdown-list UL LI {
+	margin: 0;
+	padding: 0;
+}
+.finam-ui-dropdown-list UL LI A {
+	display: block;
+	color: #000;
+	text-decoration: none;
+	border: dotted 1px #fff;
+	height: 21px;
+	line-height: 21px;
+	overflow: hidden;
+}
+.finam-ui-dropdown-list UL LI A.hover {
+	border: dotted 1px #f5db95;
+	background: #0a246a;
+	color: #fff !important;
+}
+
+
+/*=finam-ui-quote-selector */
+.finam-ui-quote-selector {
+	overflow: hidden;
+}
+.finam-ui-quote-selector-market {
+	background: none !important;
+	padding: 0 !important;
+	text-align: left;
+	width: auto;
+	height: 35px;
+	line-height: 35px;
+	float: left;
+	font: bold 28px Arial;
+	overflow: hidden;
+}
+.finam-ui-quote-selector-quote {
+	background: none !important;
+	padding: 0;
+	text-align: left;
+	float: left;
+	width: auto;
+	height: 35px;
+	line-height: 35px;
+	font: bold 28px Arial;
+	margin: 0 0 0 15px;
+	overflow: hidden;
+}
+.finam-ui-quote-selector-title {
+	float: left;
+	cursor: pointer;
+	border-bottom: dashed 1px #000;
+}
+INPUT.finam-ui-quote-selector-title {
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	font: bold 28px Arial;
+	padding: 0;
+	margin: 0;
+	max-width: 250px;
+}
+INPUT.finam-ui-quote-selector-title__empty_yes {
+	color: #999;
+}
+.finam-ui-quote-selector-arrow {
+	background: url(/i/i/issuer-profile/quote-selector-arrow.png) no-repeat 0 0;
+	width: 27px;
+	height: 27px;
+	float: left;
+	margin: 4px 0 4px 4px;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+/*=finam-ui-preloader */
+.finam-ui-preloader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 200px;
+	z-index: 10010;
+	background: url(/i/portfolio/portfolio-disabled.gif);
+	overflow: hidden;
+	opacity: 0.8;
+}
+.finam-ui-preloader DIV {
+	background: transparent url(/i/portfolio/portfolio-preloader-form.gif) center center no-repeat;
+}
+
+/*=finam-ui-dialog-button */
+.finam-ui-dialog-button-ok,
+.finam-ui-dialog-button-cancel,
+.finam-ui-dialog-button-simple
+{
+	position: relative;
+	overflow: hidden;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+	min-width: 100px;
+}
+A.finam-ui-dialog-button-ok,
+A.finam-ui-dialog-button-cancel,
+A.finam-ui-dialog-button-simple
+{
+	display: inline-block;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before,
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after
+{
+	width: 5px;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	content: '';
+	display: block;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before,
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after,
+.finam-ui-dialog-button-ok SPAN,
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN
+{
+	background-image: url(/i/i/ui/finam-ui-dialog-buttons.png);
+	background-repeat: no-repeat;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before
+{
+	left: 0;
+}
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after
+{
+	right: 0;
+}
+.finam-ui-dialog-button-ok:before {
+	background-position: left 0;
+}
+.finam-ui-dialog-button-ok:after {
+	background-position: right 0;
+}
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before
+{
+	background-position: left -30px;
+}
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after 
+{
+	background-position: right -30px;
+}
+.finam-ui-dialog-button-ok SPAN,
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN
+{
+	margin: 0 5px;
+	padding: 1px 5px 1px 5px;
+	height: 28px;
+	line-height: 28px;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+.finam-ui-dialog-button-ok SPAN {
+	background-position: -10px 0px;
+}
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN 
+{
+	background-position: -10px -30px;
+}
+
+.finam-ui-dialog-modal {
+	background: #fff;
+	border: 7px solid rgba(0, 0, 0, 0.3);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-moz-background-clip: border;
+	-webkit-background-clip: border;
+	background-clip: border-box;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+	-moz-background-clip: content;
+	-webkit-background-clip: content;
+	background-clip: content-box;
+	padding: 0 !important;
+	margin: 0 auto;
+	max-width: 100%;
+}
+.finam-ui-dialog-modal-header {
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 3px 0px 0px;
+	position: relative;
+	background: url(/i/i/ui/finam-ui-dialog-modal-header-bg.png) repeat-x 0 0;
+	border-bottom: solid 1px #e6e6e6;
+	overflow: hidden;
+	cursor: default;
+}
+.no-menu .finam-ui-dialog-modal-header {
+	height: 40px;
+}
+.finam-ui-dialog-modal-header H3 {
+	margin: 0;
+	font: bold 15px Arial, Helvetica, sans-serif;
+	text-align: left;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 15px;
+}
+.finam-ui-dialog-modal-close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	text-indent: -1000px;
+	background: url(/i/i/ui/finam-ui-dialog-modal-close.png) no-repeat 0 0;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: block;
+}
+.finam-ui-dialog-modal-close:hover {
+	background-position: 0 -20px;
+}
+.finam-ui-dialog-modal-menu {
+	height: 40px;
+	overflow: hidden;
+	padding: 0 5px;
+}
+.finam-ui-dialog-modal-menu UL {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 100%;
+	overflow: hidden;
+}
+.finam-ui-dialog-modal-menu UL LI {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	float: left;
+}
+.finam-ui-dialog-modal-menu UL LI DIV {
+	height: 28px;
+	line-height: 28px;
+	padding: 0 10px;
+	border: solid 1px #dedede;
+	background: #fff;
+	color: #666666;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+}
+.finam-ui-dialog-modal-menu UL LI + LI DIV {
+	border-left: 0;
+	padding-left: 11px;
+}
+.finam-ui-dialog-modal-menu UL LI.first DIV {
+	-moz-border-radius-topleft: 3px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 0px;
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
+}
+.finam-ui-dialog-modal-menu UL LI.last DIV {
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	-moz-border-radius-bottomright: 3px;
+	-moz-border-radius-bottomleft: 0px;
+	-webkit-border-radius: 0px 3px 3px 0px;
+	border-radius: 0 3px 3px 0;
+}
+.finam-ui-dialog-modal-menu UL LI {
+	width: auto;
+}
+.finam-ui-dialog-modal-menu UL LI.selected {
+	background: none;
+}
+.finam-ui-dialog-modal-menu UL LI.selected DIV {
+	font-weight: bold;
+}
+.finam-ui-dialog-modal-content {
+	margin: 5px;
+	min-height: 32px;
+}
+.finam-ui-dialog-modal-page-content {
+	overflow: hidden;
+}
+.finam-ui-dialog-modal-page {
+	margin: 0;
+	padding: 0;
+}
+.finam-ui-dialog-modal-page-message DIV {
+	padding: 15px;
+	margin: -5px -5px 10px -5px;
+}
+.finam-ui-dialog-modal-page-message .error {
+	background: #f6dfd7;
+	border-top: solid 1px #d1beb7;
+	border-bottom: solid 1px #d1beb7;
+}
+.finam-ui-dialog-modal-page-message .success {
+	background: #dcffe6;
+	border-top: solid 1px #62d282;
+	border-bottom: solid 1px #62d282;
+}
+.finam-ui-dialog-modal-buttons {
+	margin-top: 10px;
+	border-top: solid 1px #e6e6e6;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	text-align: center;
+	clear: both;
+}
+.empty .finam-ui-dialog-modal-buttons {
+	margin-top: 0;
+	border-top: 0;
+}
+.finam-ui-dialog-modal-buttons BUTTON + BUTTON {
+	margin-left: 10px;
+}
+
+
+/*=finam-ui-dialog-button */
+.finam-ui-dialog-button-ok,
+.finam-ui-dialog-button-cancel,
+.finam-ui-dialog-button-simple
+{
+	position: relative;
+	overflow: hidden;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+	min-width: 100px;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before,
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after
+{
+	width: 5px;
+	height: 30px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	content: '';
+	display: block;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before,
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after,
+.finam-ui-dialog-button-ok SPAN,
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN
+{
+	background-image: url(/i/i/ui/finam-ui-dialog-buttons.png);
+	background-repeat: no-repeat;
+}
+.finam-ui-dialog-button-ok:before,
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before
+{
+	left: 0;
+}
+.finam-ui-dialog-button-ok:after,
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after
+{
+	right: 0;
+}
+.finam-ui-dialog-button-ok:before {
+	background-position: left 0;
+}
+.finam-ui-dialog-button-ok:after {
+	background-position: right 0;
+}
+.finam-ui-dialog-button-cancel:before,
+.finam-ui-dialog-button-simple:before
+{
+	background-position: left -30px;
+}
+.finam-ui-dialog-button-cancel:after,
+.finam-ui-dialog-button-simple:after 
+{
+	background-position: right -30px;
+}
+.finam-ui-dialog-button-ok SPAN,
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN
+{
+	margin: 0 5px;
+	padding: 1px 5px 1px 5px;
+	height: 28px;
+	line-height: 28px;
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+.finam-ui-dialog-button-ok SPAN {
+	background-position: -10px 0px;
+}
+.finam-ui-dialog-button-cancel SPAN,
+.finam-ui-dialog-button-simple SPAN 
+{
+	background-position: -10px -30px;
+}
+/*
+.finam-ui-dialog-button-ok:active SPAN,
+.finam-ui-dialog-button-cancel:active SPAN
+{
+	padding: 2px 4px 0 6px;
+}
+*/
+
+/*=finam-ui-controls-slider */
+.finam-ui-controls-slider {
+	position: relative;
+	height: 65px;
+}
+.finam-ui-controls-slider-title {
+	font: bold 0.85em Arial;
+	height: 14px;
+	line-height: 14px;
+	padding: 3px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.finam-ui-controls-slider-min,
+.finam-ui-controls-slider-max 
+{
+	height: 45px;
+	width: 50px;
+	overflow: hidden;
+	top: 20px;
+	position: absolute;
+	text-align: center;
+}
+.finam-ui-controls-slider-min SPAN,
+.finam-ui-controls-slider-max SPAN
+{
+}
+.finam-ui-controls-slider-min .js,
+.finam-ui-controls-slider-max .js
+{
+	font-size: 12px;
+	color: #999 !important;
+	border-color: #999 !important;
+}
+.finam-ui-controls-slider-min INPUT,
+.finam-ui-controls-slider-max INPUT
+{
+	width: 44px;
+	text-align: right;
+	font-size: 11px;
+	border: solid 1px #9a9a9a;
+	padding: 1px;
+	margin: 0px;
+}
+.finam-ui-controls-slider-min {
+	left: 0;
+}
+.finam-ui-controls-slider-max {
+	right: 0;
+}
+.finam-ui-controls-slider-cols {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 209px;
+	height: 30px;
+	overflow: hidden;
+	cursor: default;
+	z-index: 101;
+}
+.finam-ui-controls-slider-cols DIV {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	/*background-color: #0f6fdf;*/
+	bottom: 0;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_0{
+	background-color:#0f6fdf;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_1{
+	background-color:#1f7fef;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_2{
+	background-color:#2f8fff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_3{
+	background-color:#3f9fff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_4{
+	background-color:#4fafff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_5{
+	background-color:#5fbfff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_6{
+	background-color:#6fcfff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_7{
+	background-color:#7fdfff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_8{
+	background-color:#8fefff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_9{
+	background-color:#9fefff;
+}
+.finam-ui-controls-slider-cols DIV.col_bg_10{
+	background-color:#afefff;
+}
+.finam-ui-controls-slider-field {
+	position: absolute;
+	width: 209px;
+	top: 35px;
+	height: 30px;
+	overflow: hidden;
+	left: 55px;
+	z-index: 100;
+}
+.finam-ui-controls-slider-pointers {
+	position: absolute;
+	height: 30px;
+	top: 0;
+	overflow: hidden;
+	z-index: 101;
+}
+.finam-ui-controls-slider-pointer-min,
+.finam-ui-controls-slider-pointer-max
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 30px;
+}
+.finam-ui-controls-slider-pointer-min {
+	z-index: 103;
+	cursor: w-resize;
+}
+.finam-ui-controls-slider-pointer-max {
+	z-index: 104;
+	cursor: e-resize;
+}
+.finam-ui-controls-slider-pointer-min DIV,
+.finam-ui-controls-slider-pointer-max DIV
+{
+	position: absolute;
+	top: 0;
+	width: 10px;
+	height: 30px;
+	background: url(/i/i/ui/finam-ui-control-grid-slider-pointer.png) no-repeat 0 0;
+}
+.finam-ui-controls-slider-pointer-min DIV {
+	background-position: -10px 0;
+	right: 0;
+}
+.finam-ui-controls-slider-pointer-max DIV {
+	background-position: -20px 0;
+	left: 0;
+}
+.finam-ui-controls-slider-disabled {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	background: url(/i/portfolio/portfolio-disabled.gif);
+	overflow: hidden;
+	opacity: 0.8;
+	height: 45px;
+	width: 100px;
+	z-index: 104;
+	line-height: 45px;
+	text-align: center;
+	color: #ccc;
+	cursor: default;
+}
+
+/*=finam-ui-controls-label */
+.finam-ui-controls-label SUP {
+	color: red;
+}
+
+/*=finam-ui-controls-textbox */
+.finam-ui-controls-textbox,
+.finam-ui-controls-textbox-multiline,
+FORM.finam-form div.password-wrapper,
+.finam-ui-controls-calendar
+{
+	overflow: hidden;
+	float: left;
+	margin-bottom: 5px;
+}
+.finam-ui-controls-textbox .finam-ui-controls-textbox-inner,
+.finam-ui-controls-textbox-multiline .finam-ui-controls-textbox-inner {
+	padding: 1px;
+	border: solid 1px #adadaf;
+	overflow: hidden;
+	border-radius: 2px; 
+	-webkit-border-radius: 2px;
+}
+.finam-ui-controls-textbox .finam-ui-controls-textbox-inner {
+	height: 22px;
+	box-sizing: border-box; /*Для класики*/
+}
+.finam-ui-controls-textbox .finam-ui-controls-textbox-inner INPUT,
+.finam-ui-controls-textbox-multiline .finam-ui-controls-textbox-inner TEXTAREA
+{
+	width: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	line-height: 22px;
+}
+.finam-ui-controls-textbox .finam-ui-controls-textbox-inner INPUT {
+	box-sizing: border-box; /*Для класики*/
+	display: block;
+	padding: 0 0 0 2px;
+	height: 18px;
+}
+
+/*=finam-ui-controls-captcha */
+.finam-ui-controls-captcha {
+	height: 26px;
+	overflow: hidden;
+	float: left;
+	margin-bottom: 5px;
+}
+.finam-ui-controls-captcha .finam-ui-controls-textbox INPUT {
+	text-align: center;
+	text-transform: uppercase;
+	float: left;
+}
+.finam-ui-controls-captcha-images {
+	float: right;
+	height: 26px;
+	width: 129px;
+	overflow: hidden;
+}
+.finam-ui-controls-captcha-images-code {
+	float: left;
+	padding: 1px;
+	border: solid 1px #adadaf;
+	border-right: 0;
+	overflow: hidden;
+	height: 22px;
+}
+.finam-ui-controls-captcha-images-code .finam-ui-controls-captcha-images-code-img {
+	height: 22px;
+	width: 100px;
+	overflow: hidden;
+}
+.finam-ui-controls-captcha-images-refresh {
+	width: 24px;
+	height: 24px;
+	overflow: hidden;
+	border: solid 1px #adadaf;
+	background: url(/i/i/ui/finam-ui-control-captcha-refresh.png) no-repeat -1px -1px;
+	cursor: pointer;
+}
+.finam-ui-controls-captcha-images-refresh:active {
+	background-position: -1px -27px;
+}
+
+/*=finam-ui-controls-select */
+.finam-ui-controls-select {
+	width: 100px;
+	height: 22px;
+	overflow: hidden;
+}
+.finam-ui-controls-select-title {
+	width: 81px;
+	height: 22px;
+	float: left;
+	background: url(/i/i/ui/finam-ui-control-select.png) no-repeat left 0;
+	line-height: 22px;
+	overflow: hidden;
+	padding: 0 4px;
+	word-spacing: nowrap;
+}
+.down .finam-ui-controls-select-title {
+	background-position: left -22px;
+	color: #000;
+	word-spacing: nowrap;
+}
+.finam-ui-controls-select-arrow {
+	width: 15px;
+	height: 22px;
+	float: right;
+	background: url(/i/i/ui/finam-ui-control-select.png) no-repeat right 0;
+	overflow: hidden;
+}
+.down .finam-ui-controls-select-arrow {
+	background-position: right -22px;
+}
+
+/*=finam-ui-controls-calendar */
+.finam-ui-controls-calendar {
+	width: 120px;
+	cursor: pointer;
+	float: left;
+	overflow: hidden;
+}
+.finam-ui-controls-calendar-inner {
+	padding: 1px;
+	border: solid 1px #adadaf;
+	overflow: hidden;
+	background: url(/i/i/ui/finam-ui-control-bg.png) no-repeat right 0;
+	padding-right: 25px;
+}
+.finam-ui-controls-calendar-inner INPUT {
+	width: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	line-height: 20px;
+	height: 20px;
+	border: 0 !important;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+}
+
+/*=finam-ui-controls-button */
+.finam-ui-controls-button,
+.finam-ui-controls-button-icon
+{
+	position: relative;
+	overflow: hidden;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.finam-ui-controls-button:before,
+.finam-ui-controls-button:after,
+.finam-ui-controls-button-icon:before,
+.finam-ui-controls-button-icon:after
+{
+	width: 5px;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	content: '';
+	display: block;
+	background-repeat: no-repeat;
+}
+.finam-ui-controls-button,
+.finam-ui-controls-button:before,
+.finam-ui-controls-button:after,
+.finam-ui-controls-button-icon,
+.finam-ui-controls-button-icon:before,
+.finam-ui-controls-button-icon:after
+{
+	height: 28px;
+}
+.finam-ui-controls-button:before,
+.finam-ui-controls-button-icon:before
+{
+	left: 0;
+	background-position: left 0;
+}
+.finam-ui-controls-button:after,
+.finam-ui-controls-button-icon:after
+{
+	right: 0;
+	background-position: right 0;
+}
+.finam-ui-controls-button SPAN,
+.finam-ui-controls-button-icon SPAN
+{
+	display: block;
+	overflow: hidden;
+	position: relative;
+	margin: 0 5px 0 5px;
+	height: 28px;
+	line-height: 28px;
+	background-position: -10px 0px;
+}
+.finam-ui-controls-button:active:before,
+.finam-ui-controls-button-icon:active:before
+{
+	background-position: left -28px;
+	width: 6px;
+}
+.finam-ui-controls-button:active:after,
+.finam-ui-controls-button-icon:active:after
+{
+	background-position: right -28px;
+}
+.finam-ui-controls-button:active SPAN,
+.finam-ui-controls-button-icon:active SPAN
+{
+	background-position: -10px -28px;
+	line-height: 29px;
+}
+.finam-ui-controls-button .icon {
+	display: none;
+}
+.finam-ui-controls-button-icon .icon {
+	width: 20px;
+	height: 20px;
+	margin: 4px 4px 4px 0;
+	float: left;
+	background-repeat: no-repeat;
+	background-position: center center;
+	overflow: hidden;
+}
+
+/*=finam-ui-controls-radiobutton-list */
+.finam-ui-controls-radiobutton-list {
+	overflow: hidden;
+	position: relative;
+	*zoom: 1;
+}
+.finam-ui-controls-radiobutton {
+	overflow: hidden;
+}
+.finam-ui-controls-radiobutton__input {
+	float: left;
+	margin-right: .2em;
+}
+.finam-ui-controls-radiobutton__control {
+	margin-left: 0;
+	overflow: hidden;
+}
+.finam-ui-controls-radiobutton__label {
+	overflow: hidden;
+	position: relative;
+	display: block;
+	cursor: default;
+	line-height: 1.5em;
+}
+.finam-ui-controls-radiobutton-list_mode_inline .finam-ui-controls-radiobutton {
+	float: left;
+	margin-right: 30px;
+}
+.finam-ui-controls-radiobutton-list_mode_inline .finam-ui-controls-radiobutton__input {
+	margin-top: 3px;
+}
+.finam-ui-controls-radiobutton-list_mode_inline .finam-ui-controls-radiobutton__label {
+	display: inline;
+	line-height: 22px;
+}
+.finam-ui-controls-radiobutton_direction_horiz .finam-ui-controls-radiobutton {
+	float: left;
+}
+
+
+/*=dialog-ok */
+.dialog-ok {
+	height: 42px;
+	font-size: 14px; /*for classic*/	  
+  }
+  
+.dialog-ok:hover SPAN {
+	background-color: #ffd50e;
+	border-color: #d0ac00;
+}
+  
+.dialog-ok:before,
+.dialog-ok:after {
+	display: none;
+}  
+.dialog-ok:active SPAN {
+	line-height: 40px;
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.13)
+	
+}
+.dialog-ok SPAN
+{
+	line-height: 40px;
+	background-color: #ffdc60;
+	margin: 0;
+	height: 40px;
+	border-radius: 4px;
+	border: 1px solid #ffd50e;
+}
+.dialog-ok-ie7 SPAN {
+	margin: 0 !important;
+	border-left: solid 1px #ceae42 !important;
+	border-right: solid 1px #ceae42 !important;
+}
+
+/*=dialog-cancel */
+.dialog-cancel,
+.dialog-button
+{
+	height: 30px;
+}
+.dialog-cancel:before,
+.dialog-cancel:after,
+.dialog-cancel SPAN,
+.dialog-button:before,
+.dialog-button:after,
+.dialog-button SPAN
+{
+	background-image: url(/i/i/ui/finam-ui-dialog-buttons.png);
+	height: 30px !important;
+}
+.dialog-cancel SPAN,
+.dialog-button SPAN
+{
+	line-height: 30px;
+	background-color: #dedede;
+}
+.dialog-cancel:before,
+.dialog-button:before
+{
+	background-position: left -30px;
+}
+.dialog-cancel:after,
+.dialog-button:after{
+	background-position: right -30px;
+}
+.dialog-cancel SPAN,
+.dialog-button SPAN{
+	background-position: -10px -30px;
+	line-height: 31px;
+}
+.dialog-cancel:active:before,
+.dialog-button:active:before{
+	background-position: left -90px;
+}
+.dialog-cancel:active:after,
+.dialog-button:active:after 
+{
+	background-position: right -90px;
+}
+.dialog-cancel:active SPAN,
+.dialog-button:active SPAN
+{
+	background-position: -10px -90px;
+	line-height: 31px;
+}
+
+/*=.finam-ui-controls-office-list */
+.finam-ui-controls-office-list {
+	margin: 0 0 0 -20px !important;
+}
+
+
+#user-dialog-addEmail {
+	text-align: center;
+}
+
+#user-dialog-addEmail div {
+	margin: 0px 50px;
+}
+
+#user-dialog-addEmail input[type=text] {
+	width: 160px;
+}
+
+/*=.finam-ui-quotes-grid */
+.finam-ui-quotes-grid {
+	clear: both;
+}
+.finam-ui-quotes-grid TABLE {
+	border-collapse: collapse;c
+	border: solid 1px #ccc;
+	width: 100%;
+}
+.finam-ui-quotes-grid TABLE TH {
+	border: solid 1px #ccc;
+	height: 36px;
+	background: url(/i/i/leaders/leaders-table-header-bg-n.png) no-repeat 0 0;
+	padding: 1px;
+	font: normal 11px Tahoma;
+}
+.finam-ui-quotes-grid TABLE TH.double {
+	border: solid 1px #ccc;
+	height: 72px;
+	background: url(/i/i/leaders/leaders-table-header-bg-m.png) no-repeat 0 0;
+	padding: 1px;
+	font: normal 11px Tahoma;
+}
+.finam-ui-quotes-grid TABLE TH:hover A { color: #d00}
+.finam-ui-quotes-grid TABLE TH:hover { background-position: 0 -38px}
+.finam-ui-quotes-grid TABLE TH.double:hover { background-position: 0 -76px}
+
+.finam-ui-quotes-grid TABLE TH.desc,
+.finam-ui-quotes-grid TABLE TH.asc
+{
+	background-image: none;
+	background-color: #e6e6e6;
+}
+.finam-ui-quotes-grid TABLE TH.desc .finam-ui-quotes-grid-icon-sort {
+	background-position: -10px 0;
+}
+.finam-ui-quotes-grid TABLE TH.asc .finam-ui-quotes-grid-icon-sort {
+	background-position: -5px 0;
+}
+.finam-ui-quotes-grid TABLE TH.no-sort,
+.finam-ui-quotes-grid TABLE TH.no-sort A
+{
+	cursor: default;
+}
+.finam-ui-quotes-grid TABLE TH.no-sort:hover A {
+	color: #000 !important;
+}
+.finam-ui-quotes-grid TABLE TD {
+	border: solid 1px #ccc;
+	padding: 6px 4px 6px 4px;
+	font: normal 12px Tahoma;
+	background: #fff;
+}
+.finam-ui-quotes-grid TABLE TR.row TD {
+	background: #f3f3f3;
+}
+.finam-ui-quotes-grid TABLE TR.hover TD {
+	border-color: #c5c5c5;
+	background-color: #e7f4ff;
+}
+.finam-ui-quotes-grid TABLE TR.hoverfixed TD {
+	border-color: #c5c5c5;
+	background-color: #ffdb78;
+}
+.finam-ui-quotes-grid TABLE TD.num {
+	text-align: center;
+	color: #999;
+}
+.finam-ui-quotes-grid-icon {
+	overflow: hidden;
+	background: url(/i/i/leaders/leaders-icons.png) no-repeat 0 0;
+	display: inline-block;
+}
+.finam-ui-quotes-grid-icon-sort {
+	width: 5px;
+	height: 9px;
+	background-position: 0 0;
+	margin-right: 5px;
+	cursor: pointer;
+}
+A.jsL {
+	text-decoration:underline;
+}
+A.jsH {
+	text-decoration:none;
+	color:Black;
+}
+
+/*=.finam-ui-controls-dropdown */
+.finam-ui-controls-dropdown .finam-ui-controls-textbox-inner {
+	position: relative;
+}
+.finam-ui-controls-dropdown-arrow {
+	position: absolute;
+	width: 23px;
+	height: 23px;
+	overflow: hidden;
+	background: url(/i/i/issuer-profile/quote-selector-arrow.png) no-repeat 0 -1px;
+	right: 1px;
+	top: 50%;
+	margin-top: -11px;
+}
+@media all and (max-width: 420px){
+	.finam-ui-dialog-modal-content{
+		max-width: 100%;
+		margin: 5px 0;
+	}
+	#user-dialog-auth LABEL, #user-dialog-register .finam-ui-controls-label{
+		width: 100% !important;
+		margin-bottom: 0;
+	}
+
+}

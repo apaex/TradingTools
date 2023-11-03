@@ -1,0 +1,10 @@
+.right-col,
+.footer,
+.menu,
+.banner-top,
+#between-left-right,
+.head td {display: none}
+.head td.logo {display: block; width: 100%; text-align: center; padding: 0}
+#content-block{width: 100%; padding: 1px}
+.main .content .h1 {margin-bottom: 0; height: auto}
+.main .content .h1 td {padding-bottom: 0}

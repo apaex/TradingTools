@@ -1,0 +1,661 @@
+ /*pat/Analysis/IssuerProfile**/
+
+.main { min-width: 900px}
+.finam-ui-quote-selector-arrow {
+	background: url(/i/i/issuer-profile/quote-selector-arrow.png) no-repeat 0 0;
+	width: 23px;
+	height: 23px;
+	float: left;
+	margin: 7px 0 4px 4px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.finam-ui-quote-selector-arrow:hover { background-position: 0 -23px;}
+.finam-ui-quote-selector-arrow:active { background-position: 0 -46px;}
+
+.finam-ui-quote-selector-market { margin-right: 15px !important; margin-bottom: 5px;}
+.finam-ui-quote-selector-quote { margin: 0 !important; }
+.finam-ui-quote-selector-market:hover DIV, .finam-ui-quote-selector-quote:hover DIV { color: #DD0000; border-color: #DD0000}
+
+/* =issuer-profile */
+#issuer-profile {
+	overflow: hidden;
+	zoom: 1;
+}
+#issuer-profile {
+	min-width: 966px;
+}
+#issuer-profile H1 {
+	margin: auto;
+	padding: auto;
+	border: auto;
+	width: auto;
+	height: auto;
+	background: none;
+	text-align: left;
+	float: left;
+}
+#issuer-profile H2 {
+	text-align: left;
+	margin: 20px 0 10px 0;
+	font: bold 24px Arial;
+}
+#issuer-profile.hide-sidebar #issuer-profile-inner {
+	margin-right: 0;
+}
+#issuer-profile.hide-sidebar #issuer-profile-content {
+	margin-right: 0;
+	padding-right: 0;
+	border-right: 0;
+}
+#issuer-profile.hide-menu #issuer-profile-outer {
+	padding-left: 0;
+}
+#issuer-profile-header {
+	/*margin-bottom: 20px;*/
+	position: relative;
+	margin-bottom: 20px;
+}
+#issuer-profile-outer {
+	padding-left: 20px;
+	overflow: hidden;
+}
+#issuer-profile-inner {
+	clear: both;
+	width: 100%;
+	float: left;
+	margin-right: -310px;
+}
+
+
+#issuer-profile-content {
+	margin-right: 300px;
+	border-right: solid 1px #ddd;
+	padding: 0 10px 0 0;
+	min-height: 330px;
+}
+
+.issuer-profile-container-fixed
+{
+	min-width:1127px;
+}
+
+#issuer-profile-content H2 {
+	margin-top: 0;
+}
+
+/* =issuer-profile-sidebar */
+#issuer-profile-sidebar {
+	width: 285px;
+	float: right;
+	padding-left: 20px;
+	text-align: left;
+}
+#issuer-profile-sidebar H2 {
+	margin-top: 0;
+}
+
+/* =issuer-profile-tabs */
+#issuer-profile-tabs {
+	width: 150px;
+	float: left;
+	overflow: hidden;
+}
+#issuer-profile-tabs TABLE {
+	border-collapse: collapse;
+}
+#issuer-profile-tabs TABLE TD {
+	width: 150px;
+	height: 40px;
+	background: url(/i/i/issuer-profile/issuer-profile-tabs.png) no-repeat 0 -116px;
+	zwhite-space: nowrap; 
+	padding: 0 10px;
+	overflow: hidden;
+	line-height: 100%;
+}
+
+#issuer-profile-tabs TABLE TD:hover { background-position: -150px -116px}
+#issuer-profile-tabs TABLE .first TD:hover {background-position: -150px -36px;}
+#issuer-profile-tabs TABLE .last TD:hover {background-position: -150px -196px;}
+
+#issuer-profile-tabs TABLE TD:active { background-position: -300px -116px}
+#issuer-profile-tabs TABLE .first TD:active {background-position: -300px -36px;}
+#issuer-profile-tabs TABLE .last TD:active {background-position: -300px -196px;}
+
+#issuer-profile-tabs TABLE TD.selected {
+	font-weight: bold;
+	background-position: 0 -156px;
+}
+#issuer-profile-tabs TABLE .top TD {
+	height: 36px;
+	background-position: 0 0;
+	padding: 0;
+}
+#issuer-profile-tabs TABLE .bottom TD {
+	height: 125px;
+	background-position: 0 -276px;
+	padding: 0;
+}
+#issuer-profile-tabs TABLE .first TD {
+	background-position: 0 -36px;
+}
+#issuer-profile-tabs TABLE .first TD.selected {
+	background-position: 0 -76px;
+}
+#issuer-profile-tabs TABLE .last TD {
+	height: 40px;
+	background-position: 0 -196px;
+}
+#issuer-profile-tabs TABLE .last TD.selected {
+	background-position: 0 -236px;
+}
+#issuer-profile-tabs TABLE TD A {
+	color: #000;
+	text-decoration: none;
+	font-size: 13px;
+}
+#issuer-profile-tabs TABLE TD A:hover { color: #DD0000}
+#issuer-profile-tabs TABLE TD.selected A:hover { color: #000; cursor: default}
+#issuer-profile-tabs TABLE TD A.external {
+	padding-right: 10px;
+	background: url(/i/N/out_menu1.gif) no-repeat right center;
+}
+
+
+#issuer-profile-news-mix TABLE.news-list,
+#issuer-profile-news TABLE.news-list
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+#issuer-profile-news-mix .news-list TD,
+#issuer-profile-news .news-list TD
+{
+	padding-bottom: 20px;
+}
+#issuer-profile-news .news-list TD,
+#issuer-profile-news-mix .news-list TD 
+{
+}
+#issuer-profile-news-mix .news-list .date,
+#issuer-profile-news .news-list .date 
+{
+	margin-right: 5px;
+	color: #999;
+}
+#issuer-profile-news-mix .news-list .date {
+	color: #666;
+}
+#issuer-profile-news .news-list .date {
+	text-align: right;
+	color: #999;
+}
+#issuer-profile-news-mix .news-list .dates .date,
+#issuer-profile-news-mix .news-list .dates .section,
+#issuer-profile-news-mix .news-list .dates .section A
+{
+	color: red;
+}
+#issuer-profile-news-mix .news-list .date,
+#issuer-profile-news-mix .news-list .section
+{
+	font: normal 12px Arial;
+	letter-spacing: 1px
+}
+#issuer-profile-news-mix .news-list .section {
+	margin-bottom: 1px;
+}
+#issuer-profile-news-mix .news-list .section A {
+	color: #666;
+	text-decoration: none;
+}
+#issuer-profile-news {
+	text-align: left;
+}
+#issuer-profile-news .news-list {
+	width: 100%;
+}
+#issuer-profile-news .news-list .date,
+#issuer-profile-news .news-list .subject
+{
+	line-height: 150%;
+}
+
+#issuer-profile-news .news-list .dates .date,
+#issuer-profile-news .news-list .dates .section,
+#issuer-profile-news .news-list .dates .section A
+{
+	color: red;
+}
+/*#issuer-profile-news .news-list .date,*/
+#issuer-profile-news .news-list .section
+{
+	font: normal 12px Arial;
+	letter-spacing: 1px
+}
+#issuer-profile-news .news-list .section {
+	margin-bottom: 1px;
+}
+#issuer-profile-news .news-list .section A {
+	color: #666;
+	text-decoration: none;
+}
+
+#issuer-profile-news H2 {
+	margin-top: 0;
+}
+#issuer-profile-news .f-news-calendar {
+	margin-bottom: 15px;
+}
+
+/* =issuer-profile .pager 
+#issuer-profile .pager {
+	height: 40px;
+}
+#issuer-profile-news-mix .pager TD {
+	padding: 0;
+	width: 35px;
+	text-align: center;
+}
+#issuer-profile-news-mix TD.pager-prev {
+	text-align: left;
+}
+#issuer-profile-news-mix TD.pager-next {
+	text-align: right;
+}
+#issuer-profile-news-mix .pager A {
+	padding: 0.1em 0.2em 0.1em 0.2em;
+	margin: 0.3em 0 0.3em 0;
+}
+#issuer-profile-news-mix .pager .pager-current A {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	border: 0;
+}
+#issuer-profile-news-mix .pager .pager-disabled .js {
+	border: 0;
+	color: #888;
+}*/
+
+/* =issuer-profile-chart */
+#issuer-profile-chart {
+	height: 430px;
+	background: #fff; padding: 5px 
+}
+#issuer-profile-chart-outer {
+	height: 440px;
+	overflow: hidden;
+	background: #f1f1f1;
+	padding: 10px;
+}
+
+/* =issuer-profile-informer */
+#issuer-profile-informer {
+	width: 285px;
+	margin-bottom: 20px;
+}
+#issuer-profile-informer TABLE {
+	border-collapse: collapse;
+	width: 100%;
+}
+#issuer-profile-informer TD {
+	padding: 5px 7px;
+	border-bottom: solid 1px #e6e6e6;
+	font: normal 14px Arial;
+}
+#issuer-profile-informer .last TD {
+	padding-bottom: 0;
+	border-width: 0;
+}
+#issuer-profile-informer .value {
+	text-align: right;
+}
+#issuer-profile-informer UL {
+	margin: 3px 0 0;
+	list-style-type: none;
+	background: url(/i/i/issuer-profile/issuer-profile-minmax-arrow.png) repeat-x;
+	padding-top: 5px;
+	border-bottom: solid 1px #ccc;
+	height: 28px;
+}
+#issuer-profile-informer UL LI {
+	float: left;
+	padding: 2px 20px 13px;
+	margin: 0;
+	height: 14px;
+	font-size: 12px
+}
+#issuer-profile-informer UL A {
+	padding: 0;
+}
+#issuer-profile-informer UL LI.selected {
+	background: url(/i/i/issuer-profile/issuer-profile-minmax-arrow.png) no-repeat bottom center;;
+}
+#issuer-profile-informer UL LI.selected A {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	border-width: 0;
+}
+#issuer-profile-informer-last,
+#issuer-profile-informer-change,
+#issuer-profile-informer-pchange
+{
+	font-weight: bold;
+}
+#issuer-profile-informer-drive {
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+/* =#issuer-profile-sidebar-about */
+#issuer-profile-sidebar-about { padding-left: 7px}
+
+#issuer-profile-sidebar-about DL {
+	margin: 0 0 10px 0;
+}
+#issuer-profile-sidebar-about P {
+	margin: 0 0 10px 0;
+}
+#issuer-profile-sidebar-about DT {
+	color: #666;
+	font-size: 90%;
+	margin: 0;
+	padding: 0;
+	letter-spacing: 1px
+}
+#issuer-profile-sidebar-about DD {
+	margin: 0;
+	padding: 0;
+}
+
+#issuer-profile #upgradebrowsers {
+	width: 100% !important;
+	height: 100px;
+	margin-bottom: 20px;
+}
+#issuer-profile #upgradebrowsers P {
+
+}
+
+#issuer-profile-search-form {
+	width: 295px;
+	float: right;
+	margin-top: 5px; margin-left: 15px
+}
+#issuer-profile-search-form input:focus { outline: none}
+#issuer-profile-search-form table.finsearch { width: 100%}
+
+#issuer-profile-ticker-list {
+	margin: 10px 0;
+	overflow: hidden;
+}
+#issuer-profile-ticker-list DL {
+	zoom: 1;
+}
+#issuer-profile-ticker-list DT {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+#issuer-profile-ticker-list SPAN {
+	font-weight: bold;
+}
+#issuer-profile-ticker-list DD {
+	margin: 0 0 0 0;
+	padding: 0;
+	display: inline;
+}
+#issuer-profile-ticker-list .ticker-selected A,
+#issuer-profile-ticker-list A.ticker-selected
+{
+	text-decoration: none;
+	border: 0;
+	font-weight: bold;
+	color: #000;
+}
+
+#issuer-profile-content-browsercheck {
+	margin-bottom: 20px;
+}
+
+.clear { overflow: hidden; height: 1px; font-size: 1px; clear: both}
+#issuer-profile-socnet-btns { float: right; display: inline; margin-top: 6px; position: relative;}
+#issuer-profile-socnet-btns a.send-graf { display: block; width: 132px; height: 24px; background: url(/i/i/issuer-profile/send-graf.png) 0 0 no-repeat}
+#issuer-profile-socnet-btns a.share-info { display: block; width: 132px; height: 24px; background: url(/i/i/issuer-profile/share-info.png) 0 0 no-repeat}
+#issuer-profile-socnet-btns a.send-graf:hover, #issuer-profile-socnet-btns a.share-info:hover { background-position: 0 -24px;}
+#issuer-profile-socnet-btns a.send-graf:active, #issuer-profile-socnet-btns a.share-info:active { background-position: 0 -48px;}
+.socnet-btns-holder {  background: #fff; position: absolute; width: 130px; border: 1px solid #d1d1d1; text-align: center; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; z-index: 1000; margin-top: 12px; display: none}
+.socnet-btns-holder .socnet-btns-arrow { width: 17px; height: 10px; background: url(/i/i/issuer-profile/share-buttons-arrow.png) no-repeat; margin-top: -10px; margin-left: 45%}
+
+/* =issuer-profile-about */
+#issuer-profile-aboutz { 
+	margin-right: 310px; 
+	border-right: 1px solid #ddd; 
+	padding-right: 10px;
+}
+
+#issuer-profile-news-mix-outer { margin-top: 22px}
+
+/* =issuer-profile-export */
+#issuer-profile-export {
+	font-size: 90%;
+	max-width: 660px;
+}
+#issuer-profile-export-from-control,
+#issuer-profile-export-to-control
+{
+	width: 120px;
+	cursor: pointer;
+	border: solid 1px #bfbfbf;
+	float: left;
+}
+#issuer-profile-export-from-control INPUT,
+#issuer-profile-export-to-control INPUT
+{
+	border: 0 !important;
+	margin: 0;
+	padding: 2px 0;
+	width: 95px;
+	text-align: center;
+	cursor: pointer;
+	padding-right: 25px;
+	background: url(/i/i/ui/finam-ui-control-bg.png) no-repeat right 0;
+}
+#issuer-profile-export-dates-sep {
+	float: left;
+	padding: 2px;
+	width: 21px;
+	text-align: center;
+}
+#issuer-profile-export FORM TABLE TD {
+	line-height: 100%;
+	padding-bottom: 15px;
+}
+#issuer-profile-export FORM TABLE TD TD {
+	padding-bottom: 0;
+}
+#issuer-profile-export FORM TABLE TD SELECT {
+	width: 100%;
+	height: 22px;
+}
+#issuer-profile-export-button {
+	border-top: solid 1px #cbcbcb;
+	border-bottom: solid 1px #cbcbcb;
+	background: #f5f5f5;
+	padding: 20px;
+	text-align: center;
+	margin-top: 10px;
+}
+#issuer-profile-export FORM .error {
+	border: solid 1px red;
+	padding: 2px;
+}
+#issuer-profile-export .finam-ui-dialog-button-cancel {
+	width: 140px !important;
+}
+#issuer-profile-export SELECT {
+	border: solid 1px #bfbfbf;
+	-webkit-border-radius: 1px; 
+	-moz-border-radius: 1px; 
+	border-radius: 1px;
+	background: url(/i/i/ui/finam-ui-control-bg.png) repeat-x left -22px;
+}
+#issuer-profile-export-file-name,
+#issuer-profile-export-contract
+{
+	border: solid 1px #bfbfbf;
+	padding: 2px;
+	background: url(/i/i/ui/finam-ui-control-bg.png) repeat-x left -22px;
+}
+#issuer-profile-export-file-name {
+	width: 264px;
+}
+#issuer-profile-export-contract {
+	width: 413px;
+}
+#issuer-profile-export-first-row TD {
+	border-bottom: solid 1px #cbcbcb;
+}
+#issuer-profile-export-second-row TD {
+	padding-top: 15px;
+}
+#issuer-profile-export-about {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#issuer-profile-export-about LI {
+	margin-bottom: 20px;
+}
+#issuer-profile-export-about A {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 50px;
+	font-weight: bold;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+}
+#issuer-profile-export-icons-metastock {
+	background-image: url(/i/i/issuer-profile/issuer-profile-export-icon-metastock.png);
+}
+#issuer-profile-export-icons-finam {
+	background-image: url(/i/i/issuer-profile/issuer-profile-export-icon-finam.png);
+}
+#issuer-profile-export-disabled {
+	background: url(/i/portfolio/portfolio-disabled.gif);
+	overflow: hidden;
+}
+#issuer-profile-export-disabled SPAN {
+	padding: 5px;
+	background: #fff;
+	font-size: 150%;
+}
+
+.profile-list-item
+{
+	margin-bottom:0.5em;
+	display:block;
+}
+#bundle-informer-leaders 
+{
+	padding-left:0.5em;
+}
+
+#bundle-informer-leaders TABLE
+{
+	width:100%;
+}
+
+#bundle-informer-leaders.quote
+{
+	margin:0.2em 0 0.2em 0;	
+	width:45%;
+}
+
+#bundle-informer-leaders.price
+{
+	margin:0.2em 0 0.2em 0;	
+	width:15%;
+}
+
+#bundle-informer-leaders-header H2 {
+	width: auto;
+	display: inline;
+	background: none;
+	padding-bottom: 0;
+	min-width: 250px;
+	height:35px;
+	width:250px;
+}
+#bundle-informer-leaders-header H2  SPAN {
+	background: url(/i/i/leaders/quote-selector-arrow.png) no-repeat top right;
+	padding: 0 30px 2px 0;
+	cursor: pointer;
+	width:250px;
+}
+#bundle-informer-leaders-header H2  SPAN:hover { color: #d00; background-position: right -30px}
+#bundle-informer-leaders-header H2  SPAN:active { color: #d00; background-position: right -60px}
+
+#bundle-informer-leaders-header H2  SPAN SPAN {
+	border-bottom: dashed 1px #969696;
+	padding: 0;
+	background: none;
+	width:250px;
+}
+
+#bundle-informer-leaders-header-pitch H2 
+{
+
+	width: auto;
+	display: inline;
+	background: none;
+	padding-bottom: 0;
+	min-width: 250px;
+	height:35px;
+	width:250px;
+}
+#bundle-informer-leaders-header-pitch H2  SPAN {
+	background: url(/i/i/leaders/quote-selector-arrow.png) no-repeat top left ;
+	background-image: url(http://finamtest.msa-webtest1.finam.ru/img/grey-btn.gif);
+	padding: 0 30px 2px 0;
+	cursor: pointer;
+	width:250px;
+}
+#bundle-informer-leaders-header-pitch H2  SPAN:hover { color: #d00; background-position: right -30px}
+#bundle-informer-leaders-header-pitch H2  SPAN:active { color: #d00; background-position: right -60px}
+
+#bundle-informer-leaders-header-pitch H2  SPAN SPAN {
+	border-bottom: dashed 1px #969696;
+	padding: 0;
+	background: none;
+	width:250px;
+}
+
+
+.finam-ui-controls-select
+{
+	width:100%;
+}
+
+/*=#techanalysis-live-new-periods */
+#techanalysis-live-new-periods {
+	display: none;
+}
+#techanalysis-live-new-periods UL {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	overflow: hidden;
+}
+#techanalysis-live-new-periods LI {
+	float: left;
+	padding: 5px;
+}
+#techanalysis-live-new-periods LI.techanalysis-live-new-periods_mode_selected {
+	background: #eee;
+}
+#techanalysis-live-new-periods LI.techanalysis-live-new-periods_mode_selected A {
+	border-bottom: dotted 1px #eee;
+}

@@ -1,0 +1,421 @@
+@charset "UTF-8";
+.f-forms-form {
+  text-align: left;
+}
+
+.f-forms-error {
+  color: red;
+  clear: both;
+}
+
+.f-forms-note {
+  color: #808080;
+  clear: both;
+}
+
+.f-forms-success {
+  text-align: center;
+}
+
+.f-forms-controls-control {
+  clear: both;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: auto;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-label,
+.f-forms-controls-control_label_left .f-forms-controls-textbox,
+.f-forms-controls-control_label_left .f-forms-controls-select,
+.f-forms-controls-control_label_left .f-forms-controls-checkboxlist,
+.f-forms-controls-control_label_left .f-forms-controls-town,
+.f-forms-controls-control_label_left .f-forms-controls-office
+.f-forms-controls-control_label_left .f-forms-controls-date,
+.f-forms-controls-control_label_left .f-forms-controls-password,
+.f-forms-controls-control_label_left .f-forms-controls-html {
+  float: left;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-html {
+  margin: 8px 0;
+}
+
+.f-forms-controls-label__star {
+  color: red;
+  font-weight: bold;
+  margin-left: 0.1em;
+  text-decoration: none;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-label__text {
+  display: inline-block;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-label__text {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: transparent;
+  color: #a7a7a7;
+  cursor: text;
+}
+
+.f-forms-controls-control_label_above .f-forms-controls-label {
+  margin-bottom: 10px;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-label__mode_blur .f-forms-controls-label__text {
+  color: #c8c8c8;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-label__mode_up .f-forms-controls-label__text {
+  top: -2px !important;
+  font-size: 10px;
+}
+
+.f-forms-controls-textbox__input,
+.f-forms-controls-textbox__textarea {
+  border: solid 1px #e0e0e0;
+  border-radius: 3px;
+  width: 100%;
+  font-size: 13px;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: none;
+  line-height: 20px;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-textbox__input {
+  padding: 0 5px;
+  height: 40px;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-textbox__input,
+.f-forms-controls-control_label_top .f-forms-controls-textbox__textarea {
+  padding: 16px;
+}
+
+.f-forms-controls-phone {
+  overflow: auto;
+}
+
+.f-forms-controls-phone__send {
+  float: right;
+  font-size: 14px;
+  max-width: 120px;
+  line-height: 20px;
+  margin-left: 4px;
+  box-sizing: border-box;
+  background-color: #ebebeb;
+  border: solid 1px #e0e0e0;
+  border-radius: 3px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.f-forms-controls-phone__input {
+  padding-right: 125px;
+}
+
+.f-forms-controls-phone__input INPUT {
+  width: 100% !important;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-phone__send {
+  height: 40px;
+  padding: 0;
+  width: 120px;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-phone__send {
+  padding: 16px 4px 17px 4px;
+  width: 110px;
+}
+
+.f-forms-controls-phone__input .f-forms-controls-textbox__input {
+  padding-right: 12px;
+}
+
+.f-forms-controls-phone_status_checked .f-forms-controls-phone {
+  padding-right: 0px !important;
+}
+
+.f-forms-controls-select__select {
+  width: 100%;
+  border: solid 1px #e0e0e0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.f-forms-controls-control_label_left .f-forms-controls-select__select {
+  height: 40px;
+}
+
+.f-forms-controls-control_label_top .f-forms-controls-select__select {
+  height: 52px;
+  padding: 0 10px 0 10px;
+}
+
+.f-forms-form INPUT[type="checkbox"] {
+  display: none;
+}
+
+.f-forms-form INPUT[type="checkbox"] + LABEL SPAN {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  margin-right: 5px;
+  vertical-align: top;
+  background: url(/imageheap/shared/elements/controls/checkbox-radio-sprite.png) -22px -1px no-repeat;
+  cursor: pointer;
+}
+
+.f-forms-form INPUT[type="checkbox"]:checked + LABEL SPAN {
+  background: url(/imageheap/shared/elements/controls/checkbox-radio-sprite.png) -1px -1px no-repeat;
+}
+
+.f-forms-controls-checkboxlist {
+  overflow: hidden;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.f-forms-controls-checkboxlist_mode_horiz .f-forms-controls-checkboxlist__item {
+  float: left;
+}
+
+.f-forms-controls-checkboxlist__item + .f-forms-controls-checkboxlist__item {
+  margin-top: 10px;
+}
+
+.f-forms-controls-checkboxlist_mode_horiz .f-forms-controls-checkboxlist__item + .f-forms-controls-checkboxlist__item {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.f-forms-controls-submit {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.f-forms-controls-submit__button {
+  background-color: #ebebeb;
+  border: solid 1px #e0e0e0;
+  border-radius: 3px;
+}
+
+.f-forms-controls-submit__button:hover {
+  background-color: #ffd970;
+  text-decoration: none;
+  color: #000 !important;
+}
+
+.f-forms-controls-submit__button_size_big {
+  width: 100%;
+  height: 52px;
+  font-size: 18px;
+  line-height: 25px;
+  max-width: 260px;
+  cursor: pointer;
+}
+
+.f-forms-controls-submit__button_size_small {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 4px 36px;
+}
+
+.f-forms-controls-submit__button_action_ok {
+  background-color: #ffcc3f;
+  border-color: #f0b40e;
+}
+
+.f-forms-controls-town__others {
+  margin-top: 8px;
+}
+
+.f-forms-controls-town__others-region {
+  width: 50%;
+  float: left !important;
+  position: relative;
+}
+
+.f-forms-controls-town__others-town {
+  width: 50%;
+  float: right !important;
+  position: relative;
+}
+
+.f-forms-controls-town__others-region .f-forms-controls-label__text,
+.f-forms-controls-town__others-town .f-forms-controls-label__text {
+  margin: 0 !important;
+  top: 10px !important;
+}
+
+.f-forms-controls-town__others-region .f-forms-controls-textbox__input,
+.f-forms-controls-town__others-town .f-forms-controls-textbox__input {
+  padding: 16px !important;
+  height: 40px !important;
+}
+
+.f-forms-form INPUT[type="radio"] {
+  display: none;
+}
+
+.f-forms-form INPUT[type="radio"] + LABEL SPAN {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin-top: 1px;
+  margin-right: 5px;
+  vertical-align: top;
+  background: url(/imageheap/shared/elements/controls/checkbox-radio-sprite.png) -58px -1px no-repeat;
+  cursor: pointer;
+}
+
+.f-forms-form INPUT[type="radio"]:checked + LABEL SPAN {
+  background: url(/imageheap/shared/elements/controls/checkbox-radio-sprite.png) -77px -1px no-repeat;
+}
+
+.f-forms-controls-radiobuttonlist {
+  overflow: hidden;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.f-forms-controls-radiobuttonlist_mode_horiz .f-forms-controls-radiobuttonlist__item {
+  float: left;
+}
+
+.f-forms-controls-radiobuttonlist__item + .f-forms-controls-radiobuttonlist__item {
+  margin-top: 10px;
+}
+
+.f-forms-controls-radiobuttonlist_mode_horiz .f-forms-controls-radiobuttonlist__item + .f-forms-controls-radiobuttonlist__item {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.f-forms-controls-office {
+  overflow: auto;
+}
+
+.f-forms-controls-office A {
+  text-decoration: none;
+  border-bottom: dotted 1px #00529f;
+}
+
+.f-forms-controls-office A:hover {
+  border-bottom: dotted 1px #ed1c24;
+}
+
+/* для выпадающего дата
+.f-forms-controls-date {
+	width: 120px;
+	cursor: pointer;
+	position: relative;
+	overflow: auto;
+}
+.f-forms-controls-date__icon {
+	position: absolute;
+	width: 24px;
+	height: 22px;
+	overflow: hidden;
+	right: 5px;
+	top: 50%;
+	margin-top: -11px;
+	background: url(/i/i/ui/finam-ui-control-bg.png) no-repeat right top;
+}
+.f-forms-controls-date .f-forms-controls-textbox__input {
+	padding-left: 10px !important;
+	padding-right: 30px !important;
+	text-align: center;
+	cursor: pointer;
+}
+*/
+.social-links-control a {
+  text-decoration: none;
+}
+
+.social-links-control .social-links-icon {
+  background: url(//yandex.st/share/static/b-share-icon.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  line-height: 16px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 6.5px;
+  margin-top: 0;
+  padding-right: 14px;
+}
+
+.social-links-ajax-form {
+  margin: 0.5em 0 0.5em 0;
+}
+
+.social-links-icon-edox {
+  background: url(/i/edox-icon-20x18.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 6.5px;
+  margin-top: 0px;
+  padding-right: 16px;
+  padding-bottom: 2px;
+}
+
+.social-links-control .social-links-icon-facebook {
+  background-position: 0 -68px;
+}
+
+.social-links-control a span {
+  border-bottom: 1px dotted;
+}
+
+.social-links-control .social-links-icon-vk {
+  background-position: 0px 0px;
+}
+
+.social-links-control .social-links-icon-ok {
+  background-position: 0px -170px;
+}
+
+.social-links-control .social-links-icon-tw {
+  background-position: 0px -51px;
+}
+
+.f-forms-controls-button {
+  display: inline-block;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: 400;
+  text-align: center;
+  background-color: #ebebeb;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: #000;
+}
+
+.f-forms-controls-button:hover {
+  background-color: #f8f8f8;
+  text-decoration: none;
+  color: #000 !important;
+}
+
+.f-forms-controls-button_size_big {
+  font-size: 18px;
+  line-height: 25px;
+  padding: 11.5px 27px;
+}
+
+.f-forms-controls-button_size_small {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 4px 36px;
+}
