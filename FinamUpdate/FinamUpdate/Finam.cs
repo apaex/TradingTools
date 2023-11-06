@@ -43,7 +43,7 @@ namespace FinamUpdate
             int em = 29;
             string token = "HFeTY2ak8XCUxlaAYDVxwSVlhVDUwxXkpJL31LJkg6fk5mHVBCHTdCc001Xm0fdRYKPXNRHUU0HUVPQAQdPCFeAxhhBh9YfkcKaRdJTgkaSWNRXA0lBxMTQzgnRRsSHUUxXwgVXi4zXxwwYl5rdGJkQD4GRAgUHlVIVRkIIAghCUwRK1FFHUU0HU9VSQRcRD8WZ3U5fzQwL0UrSQUufy4NNTlTEjJIP1Y6";
             string cn = "AFLT";
-            Period p = Period.Hour;
+            Period p = Period.Month;
 
             Dictionary<string, string> data = new Dictionary<string, string>();         
             data["market"] = m.ToString();

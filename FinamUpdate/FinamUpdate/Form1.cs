@@ -9,8 +9,11 @@ namespace FinamUpdate
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Finam dw = new Finam();
-            dw.Load(DateTime.Now.AddDays(-4), DateTime.Now.AddDays(-3));
+            ExcelProcessor proc = new ExcelProcessor(@"C:\Users\apaex\Downloads\Telegram Desktop\ќбразец_пассивной_накопительной_стратегии.xlsx");
+            proc.Process();
+
+            //Finam dw = new Finam();
+            //dw.Load(DateTime.Now.AddMonths(-12), DateTime.Now);
         }
     }
 }
