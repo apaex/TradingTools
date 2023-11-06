@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -17,13 +18,13 @@ namespace FinamUpdate
             if (!File.Exists(fileName))
                 throw new Exception("Excel File does not exists");
             excel = AttachToApplication();
-            workbook = AttachToWorkbook(excel, fileName);
+            workbook = AttachToWorkbook(fileName);
 
             excel.Visible = true;
             workbook.Activate();
         }
 
-        static Excel.Application AttachToApplication()
+        Excel.Application AttachToApplication()
         {
             try
             {
@@ -36,7 +37,7 @@ namespace FinamUpdate
             return new Excel.Application();           
         }
 
-        static Excel.Workbook AttachToWorkbook(Excel.Application excel, string fileName)
+        Excel.Workbook AttachToWorkbook(string fileName)
         { 
             foreach (Excel.Workbook wb in excel.Workbooks)
                 if (wb.FullName == fileName)
@@ -50,8 +51,28 @@ namespace FinamUpdate
             Attach(xlsx);
         }
 
+        List<string> quotes = new List<string>();
+        
+
+        public List<string> GetQuotes()
+        {
+            string[] ignore = { "Портфель", "Итог", "Данные" };
+
+            quotes.Clear();
+
+            foreach (Excel.Worksheet sheet in workbook.Sheets)
+            {
+                if (!ignore.Contains(sheet.Name))
+                    quotes.Add(sheet.Name);
+            }
+
+            return quotes;
+        }
+
+
         public void Process()
         {
+
 
         }
     }
