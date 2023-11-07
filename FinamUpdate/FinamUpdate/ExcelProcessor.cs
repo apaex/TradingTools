@@ -72,6 +72,7 @@ namespace FinamUpdate
 
         public void Process()
         {
+            List<string> quotes = GetQuotes();
 
 
         }
