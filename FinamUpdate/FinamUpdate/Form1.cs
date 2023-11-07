@@ -1,3 +1,5 @@
+using static FinamUpdate.ExcelProcessor;
+
 namespace FinamUpdate
 {
     public partial class Form1 : Form
@@ -19,12 +21,13 @@ namespace FinamUpdate
             ExcelProcessor proc = new ExcelProcessor(@"C:\Users\apaex\Downloads\Telegram Desktop\ќбразец_пассивной_накопительной_стратегии.xlsx");
             proc.Process();
 
+            listView1.Items.Clear();
+            Dictionary<string, Data> quotes = proc.GetQuotes();
 
-            List<string> quotes = proc.GetQuotes();
-
-            foreach (string quote in quotes)
+            foreach (var quote in quotes)
             {
-                listView1.Items.Add(quote);
+                listView1.Items.Add(new ListViewItem(new[] { quote.Key, quote.Value.lastRow.ToString(), quote.Value.lastDate.ToString() }));
+                
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -51,10 +52,16 @@ namespace FinamUpdate
             Attach(xlsx);
         }
 
-        List<string> quotes = new List<string>();
+        public struct Data
+        {
+            public DateTime lastDate;
+            public int lastRow;
+        }
+
+        Dictionary<string, Data> quotes = new Dictionary<string, Data>();
         
 
-        public List<string> GetQuotes()
+        public Dictionary<string, Data> GetQuotes()
         {
             string[] ignore = { "Портфель", "Итог", "Данные" };
 
@@ -62,8 +69,28 @@ namespace FinamUpdate
 
             foreach (Excel.Worksheet sheet in workbook.Sheets)
             {
-                if (!ignore.Contains(sheet.Name))
-                    quotes.Add(sheet.Name);
+                if (ignore.Contains(sheet.Name))
+                    continue;
+
+       
+                Data data = new Data() { lastDate = new DateTime(2006,01,01), lastRow = 5 } ;
+
+                int i = 5;
+
+                while(true) 
+                {
+                    var ii = sheet.Cells[i, 2].Value;
+                    if (ii == null || !(ii is DateTime)) 
+                        break;
+                    ++i;
+                }
+
+                if (i > 5)
+                {
+                    data.lastDate = sheet.Cells[i - 1, 2].Value;
+                    data.lastRow = i - 1;
+                }
+                quotes.Add(sheet.Name, data);
             }
 
             return quotes;
@@ -72,8 +99,7 @@ namespace FinamUpdate
 
         public void Process()
         {
-            List<string> quotes = GetQuotes();
-
+           
 
         }
     }
