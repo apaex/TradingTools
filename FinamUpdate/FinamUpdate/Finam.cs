@@ -316,7 +316,7 @@ internal class Finam : QuotesProvider
 
     const string url = "https://export.finam.ru/export.csv";
 
-    public override List<Data> Load(string cn, DateTime from, DateTime to, Period p = Period.Month)
+    public override Dictionary<DateTime, Data> Load(string cn, DateTime from, DateTime to, Period p = Period.Month)
     {
         Dictionary<string, string> data = new Dictionary<string, string>();
         data["market"] = "1";
@@ -354,10 +354,10 @@ internal class Finam : QuotesProvider
             //http.DownloadFile(urlRequest, "out.csv");
         }
 
-        List<Data> datas = new List<Data>();
-        datas.Add(new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 09, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 });
-        datas.Add(new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 10, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 });
-        datas.Add(new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 11, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 });
+        var datas = new Dictionary<DateTime, Data>();
+        datas[new DateTime(2023, 09, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 09, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
+        datas[new DateTime(2023, 10, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 10, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
+        datas[new DateTime(2023, 11, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 11, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
 
         return datas;
     }

@@ -23,6 +23,6 @@ internal abstract class QuotesProvider
         public DateTime date;
         public double open, high, low, close, volume;
     }
-    public abstract List<Data> Load(string cn, DateTime from, DateTime to, Period p = Period.Month);
+    public abstract Dictionary<DateTime, Data> Load(string cn, DateTime from, DateTime to, Period p = Period.Month);
 
 }

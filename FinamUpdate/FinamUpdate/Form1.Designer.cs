@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
             button1 = new Button();
             button2 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -52,6 +52,21 @@
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Инструмент";
+            columnHeader1.Width = 260;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "ID";
+            columnHeader2.Width = 260;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Статус";
+            columnHeader3.Width = 260;
             // 
             // button1
             // 
@@ -71,6 +86,7 @@
             button2.TabIndex = 3;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // panel1
             // 
@@ -90,21 +106,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1259, 828);
             panel2.TabIndex = 5;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "Инструмент";
-            columnHeader1.Width = 260;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "ID";
-            columnHeader2.Width = 260;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "Статус";
-            columnHeader3.Width = 260;
             // 
             // Form1
             // 

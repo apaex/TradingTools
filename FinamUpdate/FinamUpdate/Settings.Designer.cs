@@ -25,8 +25,7 @@ namespace QuotesUpdate {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\apaex\\Downloads\\Telegram Desktop\\Образец_пассивной_накопительной_стратег" +
-            "ии.xlsx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Z:\\Projects\\Trading\\Образец_пассивной_накопительной_стратегии.xlsx")]
         public string InputFile {
             get {
                 return ((string)(this["InputFile"]));

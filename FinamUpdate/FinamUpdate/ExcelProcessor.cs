@@ -1,4 +1,5 @@
-﻿using Excel = Microsoft.Office.Interop.Excel;
+﻿using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QuotesUpdate;
 
@@ -62,6 +63,8 @@ internal class ExcelProcessor
                 data.lastRow = i - 1;
             }
             quotes.Add(sheet.Name, data);
+
+            break;
         }
 
         return quotes;
@@ -74,15 +77,32 @@ internal class ExcelProcessor
         
         foreach (var quote in quotes)
         {
-            provider.Load(quote.Key, quote.Value.lastDate, DateTime.Now.Date);
-            //listView1.Items.Add(new ListViewItem(new[] { quote.Key, quote.Value.lastRow.ToString(), quote.Value.lastDate.ToString() }));
+            var datas = provider.Load(quote.Key, quote.Value.lastDate, DateTime.Now.Date);
 
+            Worksheet sheet = workbook.Sheets[quote.Key];
+
+
+            int addNeeded = (DateTime.Now.Date.Year - quote.Value.lastDate.Year) * 12 + (DateTime.Now.Date.Month - quote.Value.lastDate.Month);
+            
+            for (int i = quote.Value.lastRow; i <= quote.Value.lastRow + addNeeded; ++i)
+            {
+                if (i > quote.Value.lastRow)
+                {
+                    sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
+                    sheet.Rows[i - 1].Copy(sheet.Rows[i]);
+                }
+
+                DateTime dateKey = quote.Value.lastDate.AddMonths(i - quote.Value.lastRow);
+                QuotesProvider.Data data = datas[dateKey];
+
+                sheet.Cells[i, 2] = dateKey;
+                sheet.Cells[i, 3] = data.open;
+                sheet.Cells[i, 4] = data.high;
+                sheet.Cells[i, 5] = data.low;
+                sheet.Cells[i, 6] = data.close;
+            }
+
+            break;
         }
-
-        //Rows("217:217").Select
-        //Selection.Copy
-        //Rows("218:218").Select
-        //Selection.Insert Shift:= xlDown
-
     }
 }

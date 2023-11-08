@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="InputFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\apaex\Downloads\Telegram Desktop\Образец_пассивной_накопительной_стратегии.xlsx</Value>
+      <Value Profile="(Default)">Z:\Projects\Trading\Образец_пассивной_накопительной_стратегии.xlsx</Value>
     </Setting>
   </Settings>
 </SettingsFile>
