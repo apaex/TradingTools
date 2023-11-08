@@ -1,4 +1,4 @@
-﻿namespace FinamUpdate
+﻿namespace QuotesUpdate
 {
     partial class Form1
     {

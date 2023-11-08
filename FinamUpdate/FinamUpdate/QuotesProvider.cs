@@ -1,4 +1,4 @@
-﻿namespace FinamUpdate;
+﻿namespace QuotesUpdate;
 
 internal abstract class QuotesProvider
 {

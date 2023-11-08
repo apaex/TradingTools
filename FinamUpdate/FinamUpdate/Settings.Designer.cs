@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FinamUpdate {
+namespace QuotesUpdate {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

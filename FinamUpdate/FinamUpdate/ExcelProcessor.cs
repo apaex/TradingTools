@@ -1,6 +1,6 @@
 ﻿using Excel = Microsoft.Office.Interop.Excel;
 
-namespace FinamUpdate;
+namespace QuotesUpdate;
 
 internal class ExcelProcessor
 {

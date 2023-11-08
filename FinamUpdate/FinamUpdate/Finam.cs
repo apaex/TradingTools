@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace FinamUpdate;
+namespace QuotesUpdate;
 
 internal class Finam : QuotesProvider
 {

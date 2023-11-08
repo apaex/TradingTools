@@ -1,6 +1,6 @@
-using static FinamUpdate.ExcelProcessor;
+using static QuotesUpdate.ExcelProcessor;
 
-namespace FinamUpdate
+namespace QuotesUpdate
 {
     public partial class Form1 : Form
     {
