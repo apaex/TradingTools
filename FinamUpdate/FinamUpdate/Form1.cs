@@ -22,10 +22,26 @@ namespace QuotesUpdate
 
             foreach (var quote in quotes)
             {
-                listView1.Items.Add(new ListViewItem(new[] { quote.Key, quote.Value.lastRow.ToString(), quote.Value.lastDate.ToString() }));
+                listView1.Items.Add(new ListViewItem(new[] { quote.Key, quote.Value.lastDate.ToString(), quote.Value.lastRow.ToString() }));
             }
             
-            proc.Process();
+            Thread.Sleep(0);
+
+            foreach (var quote in quotes)
+            {
+                string status = "OK";
+                try
+                {
+                    proc.Process(quote.Key);
+                }
+                catch(Exception ex) { status = ex.Message; }
+
+
+                //listView1.Items[quote.Key] = status;
+
+                Thread.Sleep(0);
+                break;
+            }        
         }
 
         private void button2_Click(object sender, EventArgs e)

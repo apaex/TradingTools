@@ -30,14 +30,14 @@ internal class ExcelProcessor
         public int lastRow;
     }
 
-    Dictionary<string, Data> quotes = new Dictionary<string, Data>();
+    Dictionary<string, Data> sheetsData = new Dictionary<string, Data>();
     
 
     public Dictionary<string, Data> GetQuotes()
     {
         string[] ignore = { "Портфель", "Итог", "Данные" };
 
-        quotes.Clear();
+        sheetsData.Clear();
 
         foreach (Excel.Worksheet sheet in workbook.Sheets)
         {
@@ -62,47 +62,44 @@ internal class ExcelProcessor
                 data.lastDate = sheet.Cells[i - 1, 2].Value;
                 data.lastRow = i - 1;
             }
-            quotes.Add(sheet.Name, data);
+            sheetsData.Add(sheet.Name, data);
 
             break;
         }
 
-        return quotes;
+        return sheetsData;
     }
 
+    QuotesProvider provider = new Finam();
 
-    public void Process()
+    public void Process(string cn)
     {
-        QuotesProvider provider = new Finam();
-        
-        foreach (var quote in quotes)
-        {
-            var datas = provider.Load(quote.Key, quote.Value.lastDate, DateTime.Now.Date);
+        var sheetData = sheetsData[cn];
+        var quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
-            Worksheet sheet = workbook.Sheets[quote.Key];
+        Worksheet sheet = workbook.Sheets[cn];
 
-
-            int addNeeded = (DateTime.Now.Date.Year - quote.Value.lastDate.Year) * 12 + (DateTime.Now.Date.Month - quote.Value.lastDate.Month);
+        int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
             
-            for (int i = quote.Value.lastRow; i <= quote.Value.lastRow + addNeeded; ++i)
+        for (int i = sheetData.lastRow; i <= sheetData.lastRow + addNeeded; ++i)
+        {
+            if (i > sheetData.lastRow)
             {
-                if (i > quote.Value.lastRow)
-                {
-                    sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
-                    sheet.Rows[i - 1].Copy(sheet.Rows[i]);
-                }
-
-                DateTime dateKey = quote.Value.lastDate.AddMonths(i - quote.Value.lastRow);
-                QuotesProvider.Data data = datas[dateKey];
-
-                sheet.Cells[i, 2] = dateKey;
-                sheet.Cells[i, 3] = data.open;
-                sheet.Cells[i, 4] = data.high;
-                sheet.Cells[i, 5] = data.low;
-                sheet.Cells[i, 6] = data.close;
+                sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
+                sheet.Rows[i - 1].Copy(sheet.Rows[i]);
             }
 
-            break;
+            DateTime dateKey = sheetData.lastDate.AddMonths(i - sheetData.lastRow);
+            QuotesProvider.Data data = quotes[dateKey];
+
+            sheet.Cells[i, 2] = dateKey;
+            sheet.Cells[i, 3] = data.open;
+            sheet.Cells[i, 4] = data.high;
+            sheet.Cells[i, 5] = data.low;
+            sheet.Cells[i, 6] = data.close;
         }
+    }
+    public void Process()
+    {
     }
 }
