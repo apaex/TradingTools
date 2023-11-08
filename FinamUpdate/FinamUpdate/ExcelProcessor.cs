@@ -70,6 +70,15 @@ internal class ExcelProcessor
 
     public void Process()
     {
+        QuotesProvider provider = new Finam();
+        
+        foreach (var quote in quotes)
+        {
+            provider.Load(quote.Key, quote.Value.lastDate, DateTime.Now.Date);
+            //listView1.Items.Add(new ListViewItem(new[] { quote.Key, quote.Value.lastRow.ToString(), quote.Value.lastDate.ToString() }));
+
+        }
+
         //Rows("217:217").Select
         //Selection.Copy
         //Rows("218:218").Select
