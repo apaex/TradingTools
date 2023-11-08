@@ -22,5 +22,18 @@ namespace QuotesUpdate {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\apaex\\Downloads\\Telegram Desktop\\Образец_пассивной_накопительной_стратег" +
+            "ии.xlsx")]
+        public string InputFile {
+            get {
+                return ((string)(this["InputFile"]));
+            }
+            set {
+                this["InputFile"] = value;
+            }
+        }
     }
 }
