@@ -70,7 +70,7 @@
             // columnHeader3
             // 
             columnHeader3.Text = "Статус";
-            columnHeader3.Width = 260;
+            columnHeader3.Width = 460;
             // 
             // contextMenuStrip1
             // 
