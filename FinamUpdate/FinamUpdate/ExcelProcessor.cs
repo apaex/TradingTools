@@ -96,7 +96,8 @@ internal class ExcelProcessor
             if (i > sheetData.lastRow)
             {
                 sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
-                sheet.Rows[i - 1].Copy(sheet.Rows[i]);
+                sheet.Rows[i - 1].Copy();
+                sheet.Rows[i].PasteSpecial(Excel.XlPasteType.xlPasteAll);
             }
 
             DateTime dateKey = sheetData.lastDate.AddMonths(i - sheetData.lastRow);
