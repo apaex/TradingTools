@@ -2,10 +2,10 @@ using static QuotesUpdate.ExcelProcessor;
 
 namespace QuotesUpdate
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         ExcelProcessor proc = new ExcelProcessor(Settings.Default.InputFile);
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -53,9 +53,9 @@ namespace QuotesUpdate
                 listView1.Items[key].SubItems.Add(ticketInfo.lastDate.ToString());
                 proc.Process(key);
             }
-            catch (Exception ex) 
-            { 
-                status = ex.Message; 
+            catch (Exception ex)
+            {
+                status = ex.Message;
             }
             listView1.Items[key].SubItems.Add(status);
 

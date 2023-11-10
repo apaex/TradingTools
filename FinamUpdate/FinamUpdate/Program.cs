@@ -24,7 +24,7 @@ namespace QuotesUpdate
                 Settings.Default.Save();
             }
 
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace QuotesUpdate
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -126,14 +126,14 @@
             panel2.Size = new Size(1259, 828);
             panel2.TabIndex = 5;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1259, 828);
             Controls.Add(panel1);
             Controls.Add(panel2);
-            Name = "Form1";
+            Name = "MainForm";
             Text = "Обновление данных пассивной накопительной стратегии";
             Load += Form1_Load;
             contextMenuStrip1.ResumeLayout(false);
