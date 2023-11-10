@@ -43,6 +43,7 @@ namespace QuotesUpdate
 
         private void Update(string key)
         {
+            Cursor.Current = Cursors.WaitCursor;
             string status = "OK";
             try
             {
@@ -56,6 +57,7 @@ namespace QuotesUpdate
             listView1.Items[key].SubItems.Add(status);
 
             Application.DoEvents();
+            Cursor.Current = Cursors.Default;
         }
 
         bool stop = false;
