@@ -18,14 +18,22 @@ namespace QuotesUpdate
 
         private void button1_Click(object sender, EventArgs e)
         {
+            stop = false;
             foreach (var quote in proc.TicketsList)
+            {
                 Update(quote.Key);
+                if (stop) break;
+            }
         }
 
         private void Ó·ÌÓ‚ËÚ¸ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            stop = false;
             foreach (ListViewItem quote in listView1.SelectedItems)
+            { 
                 Update(quote.Text);
+                if (stop) break;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,5 +58,10 @@ namespace QuotesUpdate
             Application.DoEvents();
         }
 
+        bool stop = false;
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            stop = true;
+        }
     }
 }

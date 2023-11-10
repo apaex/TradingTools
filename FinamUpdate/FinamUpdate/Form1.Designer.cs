@@ -38,6 +38,7 @@
             button1 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
+            button2 = new Button();
             contextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -98,6 +99,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Right;
             panel1.Location = new Point(1053, 0);
@@ -113,6 +115,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1259, 828);
             panel2.TabIndex = 5;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(24, 125);
+            button2.Name = "button2";
+            button2.Size = new Size(161, 56);
+            button2.TabIndex = 3;
+            button2.Text = "Стоп";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
             // 
             // Form1
             // 
@@ -141,5 +153,6 @@
         private Panel panel2;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem обновитьToolStripMenuItem;
+        private Button button2;
     }
 }
