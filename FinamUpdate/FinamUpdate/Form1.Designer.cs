@@ -33,14 +33,14 @@
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            обновитьToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            обновитьToolStripMenuItem = new ToolStripMenuItem();
+            contextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
@@ -72,34 +72,6 @@
             columnHeader3.Text = "Статус";
             columnHeader3.Width = 260;
             // 
-            // button1
-            // 
-            button1.Location = new Point(24, 39);
-            button1.Name = "button1";
-            button1.Size = new Size(213, 56);
-            button1.TabIndex = 2;
-            button1.Text = "Старт";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(button1);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1010, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(249, 828);
-            panel1.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(listView1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1259, 828);
-            panel2.TabIndex = 5;
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(24, 24);
@@ -114,6 +86,34 @@
             обновитьToolStripMenuItem.Text = "Обновить";
             обновитьToolStripMenuItem.Click += обновитьToolStripMenuItem_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(24, 39);
+            button1.Name = "button1";
+            button1.Size = new Size(161, 56);
+            button1.TabIndex = 2;
+            button1.Text = "Старт";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(button1);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(1053, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(206, 828);
+            panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(listView1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1259, 828);
+            panel2.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -122,11 +122,11 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Обновление данных пассивной накопительной стратегии";
             Load += Form1_Load;
+            contextMenuStrip1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
