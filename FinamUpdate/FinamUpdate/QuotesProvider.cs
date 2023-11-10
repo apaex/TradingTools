@@ -19,7 +19,7 @@ internal abstract class QuotesProvider
     public struct Data
     {
         public string ticker;
-        public Period period;
+        public string period;
         public DateTime date;
         public double open, high, low, close, volume;
     }

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System.Globalization;
+using System.Net;
 
 namespace QuotesUpdate;
 
@@ -318,47 +319,67 @@ internal class Finam : QuotesProvider
 
     public override Dictionary<DateTime, Data> Load(string cn, DateTime from, DateTime to, Period p = Period.Month)
     {
-        Dictionary<string, string> data = new Dictionary<string, string>();
-        data["market"] = "1";
-        data["em"] = quote_ids[cn].ToString();
-        data["token"] = token;
-        data["code"] = cn;
-        data["apply"] = "1";
-        data["df"] = from.Day.ToString();
-        data["mf"] = (from.Month-1).ToString();
-        data["yf"] = from.Year.ToString();
-        data["from"] = from.ToString("dd.MM.yyyy");
-        data["dt"] = to.Day.ToString();
-        data["mt"] = (to.Month-1).ToString();
-        data["yt"] = to.Year.ToString();
-        data["to"] = to.ToString("dd.MM.yyyy");
-        data["p"] = Convert.ToInt32(p).ToString();
-        data["f"] = "export";
-        data["e"] = ".csv";
-        data["cn"] = cn;        //Имя контракта
-        data["dtf"] = "1";      //ггггммдд
-        data["tmf"] = "1";      //ччммсс
-        data["MSOR"] = "1";     //окончания свечи
-        data["mstime"] = "on";  //московское
-        data["mstimever"] = "1";
-        data["sep"] = "3";      //запятая (,)
-        data["sep2"] = "1";     //нет
-        data["datf"] = "1";     //TICKER, PER, DATE, TIME, OPEN, HIGH, LOW, CLOSE, VOL
-        data["at"] = "";       //Добавить заголовок файла
-        data["fsp"] = "";       //Заполнять периоды без сделок
+        var quotes = new Dictionary<DateTime, Data>();
 
-        string urlRequest = url + "?" + string.Join('&', data.Select(kvp => kvp.Key + "=" + kvp.Value));
+        Dictionary<string, string> requestParams = new Dictionary<string, string>();
+        requestParams["market"] = "1";
+        requestParams["em"] = quote_ids[cn].ToString();
+        requestParams["token"] = token;
+        requestParams["code"] = cn;
+        requestParams["apply"] = "1";
+        requestParams["df"] = from.Day.ToString();
+        requestParams["mf"] = (from.Month-1).ToString();
+        requestParams["yf"] = from.Year.ToString();
+        requestParams["from"] = from.ToString("dd.MM.yyyy");
+        requestParams["dt"] = to.Day.ToString();
+        requestParams["mt"] = (to.Month-1).ToString();
+        requestParams["yt"] = to.Year.ToString();
+        requestParams["to"] = to.ToString("dd.MM.yyyy");
+        requestParams["p"] = Convert.ToInt32(p).ToString();
+        requestParams["f"] = "export";
+        requestParams["e"] = ".csv";
+        requestParams["cn"] = cn;        //Имя контракта
+        requestParams["dtf"] = "1";      //ггггммдд
+        requestParams["tmf"] = "1";      //ччммсс
+        requestParams["MSOR"] = "1";     //окончания свечи
+        requestParams["mstime"] = "on";  //московское
+        requestParams["mstimever"] = "1";
+        requestParams["sep"] = "3";      //запятая (,)
+        requestParams["sep2"] = "1";     //нет
+        requestParams["datf"] = "1";     //TICKER, PER, DATE, TIME, OPEN, HIGH, LOW, CLOSE, VOL
+        requestParams["at"] = "";       //Добавить заголовок файла
+        requestParams["fsp"] = "";       //Заполнять периоды без сделок
+
+        string urlRequest = url + "?" + string.Join('&', requestParams.Select(kvp => kvp.Key + "=" + kvp.Value));
 
         using (var http = new WebClient())
         {
-            //http.DownloadFile(urlRequest, "out.csv");
+            string s = http.DownloadString(urlRequest);
+
+            using (StringReader reader = new StringReader(s))
+            {
+                while (true)
+                {
+                    string? line = reader.ReadLine();
+                    if (line == null)
+                        break;
+                    string[] item = line.Split(";");
+
+                    var quote = new Data();
+                    quote.ticker = item[0];
+                    quote.period = item[1];
+                    quote.date = DateTime.ParseExact(item[2] + item[3], "yyyyMMddHHmmss", CultureInfo.InvariantCulture);
+                    quote.open = Convert.ToDouble(item[4], CultureInfo.InvariantCulture.NumberFormat);
+                    quote.high = Convert.ToDouble(item[5], CultureInfo.InvariantCulture.NumberFormat);
+                    quote.low = Convert.ToDouble(item[6], CultureInfo.InvariantCulture.NumberFormat);
+                    quote.close = Convert.ToDouble(item[7], CultureInfo.InvariantCulture.NumberFormat);
+                    quote.volume = Convert.ToDouble(item[8], CultureInfo.InvariantCulture.NumberFormat);                    
+
+                    quotes[quote.date] = quote;
+                }
+            }
         }
 
-        var datas = new Dictionary<DateTime, Data>();
-        datas[new DateTime(2023, 09, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 09, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
-        datas[new DateTime(2023, 10, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 10, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
-        datas[new DateTime(2023, 11, 1)] = new Data() { ticker = "AFLT", period = Period.Month, date = new DateTime(2023, 11, 1), open = 1, high = 2, low = 0, close = 3, volume = 11 };
-
-        return datas;
+        return quotes;
     }
 }

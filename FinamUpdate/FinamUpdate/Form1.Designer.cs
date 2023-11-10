@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             listView1 = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             button1 = new Button();
-            button2 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
-            button3 = new Button();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            обновитьToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // listView1
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listView1.ContextMenuStrip = contextMenuStrip1;
             listView1.Dock = DockStyle.Fill;
             listView1.FullRowSelect = true;
             listView1.GridLines = true;
@@ -73,31 +76,19 @@
             // 
             button1.Location = new Point(24, 39);
             button1.Name = "button1";
-            button1.Size = new Size(154, 56);
+            button1.Size = new Size(213, 56);
             button1.TabIndex = 2;
-            button1.Text = "button1";
+            button1.Text = "Старт";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button2
-            // 
-            button2.Location = new Point(24, 128);
-            button2.Name = "button2";
-            button2.Size = new Size(154, 54);
-            button2.TabIndex = 3;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
             // panel1
             // 
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1056, 0);
+            panel1.Location = new Point(1010, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(203, 828);
+            panel1.Size = new Size(249, 828);
             panel1.TabIndex = 4;
             // 
             // panel2
@@ -109,15 +100,19 @@
             panel2.Size = new Size(1259, 828);
             panel2.TabIndex = 5;
             // 
-            // button3
+            // contextMenuStrip1
             // 
-            button3.Location = new Point(24, 218);
-            button3.Name = "button3";
-            button3.Size = new Size(154, 54);
-            button3.TabIndex = 4;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { обновитьToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(166, 36);
+            // 
+            // обновитьToolStripMenuItem
+            // 
+            обновитьToolStripMenuItem.Name = "обновитьToolStripMenuItem";
+            обновитьToolStripMenuItem.Size = new Size(165, 32);
+            обновитьToolStripMenuItem.Text = "Обновить";
+            обновитьToolStripMenuItem.Click += обновитьToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -131,6 +126,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -141,9 +137,9 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private Button button1;
-        private Button button2;
         private Panel panel1;
         private Panel panel2;
-        private Button button3;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem обновитьToolStripMenuItem;
     }
 }
