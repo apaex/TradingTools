@@ -82,12 +82,18 @@ internal class ExcelProcessor
 
     QuotesProvider provider = new Finam();
 
+
     public void Process(string cn)
     {
         var sheetData = sheetsData[cn];
-        var quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
+        
 
         Worksheet sheet = workbook.Sheets[cn];
+
+        ListObject table = sheet.ListObjects[cn];
+        Excel.Range range = table.Range;
+
+        var quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
         int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
             
@@ -109,8 +115,8 @@ internal class ExcelProcessor
             sheet.Cells[i, 5] = data.low;
             sheet.Cells[i, 6] = data.close;
         }
+
+        table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
     }
-    public void Process()
-    {
-    }
+
 }
