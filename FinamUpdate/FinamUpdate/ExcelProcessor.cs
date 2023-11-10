@@ -31,43 +31,53 @@ internal class ExcelProcessor
     }
 
     Dictionary<string, Data> sheetsData = new Dictionary<string, Data>();
-    
 
-    public Dictionary<string, Data> GetQuotes()
+    public Dictionary<string, Data> TicketsList => GetTicketsList();
+
+    public Dictionary<string, Data> GetTicketsList(bool forse = false)
     {
-        string[] ignore = { "Портфель", "Итог", "Данные" };
-
-        sheetsData.Clear();
-
-        foreach (Excel.Worksheet sheet in workbook.Sheets)
+        if (forse || sheetsData.Count == 0)
         {
-            if (ignore.Contains(sheet.Name))
-                continue;
+            string[] ignore = { "Портфель", "Итог", "Данные" };
 
-   
-            Data data = new Data() { lastDate = new DateTime(2006,01,01), lastRow = 5 } ;
+            sheetsData.Clear();
 
-            int i = 5;
-
-            while(true) 
+            foreach (Excel.Worksheet sheet in workbook.Sheets)
             {
-                var ii = sheet.Cells[i, 2].Value;
-                if (ii == null || !(ii is DateTime)) 
-                    break;
-                ++i;
-            }
+                if (ignore.Contains(sheet.Name))
+                    continue;
 
-            if (i > 5)
-            {
-                data.lastDate = sheet.Cells[i - 1, 2].Value;
-                data.lastRow = i - 1;
+                Data data = new Data();
+                sheetsData.Add(sheet.Name, data);
             }
-            sheetsData.Add(sheet.Name, data);
-
-            break;
         }
 
         return sheetsData;
+    }
+
+
+    public Data GetTicketInfo(string cn)
+    {
+        Data data = sheetsData[cn];
+        Excel.Worksheet sheet = workbook.Sheets[cn];
+
+        int i = 5;
+
+        while (true)
+        {
+            var ii = sheet.Cells[i, 2].Value;
+            if (ii == null || !(ii is DateTime))
+                break;
+            ++i;
+        }
+
+        if (i > 5)
+        {
+            data.lastDate = sheet.Cells[i - 1, 2].Value;
+            data.lastRow = i - 1;
+        }
+        sheetsData[cn] = data;
+        return data;
     }
 
     QuotesProvider provider = new Finam();
