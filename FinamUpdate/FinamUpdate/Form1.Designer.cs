@@ -37,8 +37,8 @@
             обновитьToolStripMenuItem = new ToolStripMenuItem();
             button1 = new Button();
             panel1 = new Panel();
-            panel2 = new Panel();
             button2 = new Button();
+            panel2 = new Panel();
             contextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -65,7 +65,7 @@
             // 
             // columnHeader2
             // 
-            columnHeader2.Text = "ID";
+            columnHeader2.Text = "Дата обновления";
             columnHeader2.Width = 260;
             // 
             // columnHeader3
@@ -107,15 +107,6 @@
             panel1.Size = new Size(206, 828);
             panel1.TabIndex = 4;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(listView1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1259, 828);
-            panel2.TabIndex = 5;
-            // 
             // button2
             // 
             button2.Location = new Point(24, 125);
@@ -125,6 +116,15 @@
             button2.Text = "Стоп";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click_1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(listView1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1259, 828);
+            panel2.TabIndex = 5;
             // 
             // Form1
             // 

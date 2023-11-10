@@ -30,7 +30,7 @@ namespace QuotesUpdate
         {
             stop = false;
             foreach (ListViewItem quote in listView1.SelectedItems)
-            { 
+            {
                 Update(quote.Text);
                 if (stop) break;
             }
