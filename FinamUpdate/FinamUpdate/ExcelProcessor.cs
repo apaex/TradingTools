@@ -86,25 +86,25 @@ internal class ExcelProcessor
     public void Process(string cn)
     {
         var sheetData = sheetsData[cn];
-        
-
         Worksheet sheet = workbook.Sheets[cn];
-
         ListObject table = sheet.ListObjects[cn];
         Excel.Range range = table.Range;
 
         var quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
         int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
-            
+
+        if (addNeeded > 0)
+        {
+            for (int i = sheetData.lastRow + 1; i <= sheetData.lastRow + addNeeded; ++i)
+                sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
+            table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
+        }
+
         for (int i = sheetData.lastRow; i <= sheetData.lastRow + addNeeded; ++i)
         {
             if (i > sheetData.lastRow)
-            {
-                sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
-                sheet.Rows[i - 1].Copy();
-                sheet.Rows[i].PasteSpecial(Excel.XlPasteType.xlPasteAll);
-            }
+                sheet.Rows[i - 1].Copy(sheet.Rows[i]);
 
             DateTime dateKey = sheetData.lastDate.AddMonths(i - sheetData.lastRow);
             QuotesProvider.Data data = quotes[dateKey];
@@ -114,9 +114,7 @@ internal class ExcelProcessor
             sheet.Cells[i, 4] = data.high;
             sheet.Cells[i, 5] = data.low;
             sheet.Cells[i, 6] = data.close;
-        }
-
-        table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
+        }        
     }
 
 }
