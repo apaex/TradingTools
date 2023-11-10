@@ -96,8 +96,7 @@ internal class ExcelProcessor
 
         if (addNeeded > 0)
         {
-            for (int i = sheetData.lastRow + 1; i <= sheetData.lastRow + addNeeded; ++i)
-                sheet.Rows[i].Insert(XlInsertShiftDirection.xlShiftDown);
+            sheet.Range[$"{sheetData.lastRow + 1}:{sheetData.lastRow + addNeeded}"].Insert(XlInsertShiftDirection.xlShiftDown);
             table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
         }
 
