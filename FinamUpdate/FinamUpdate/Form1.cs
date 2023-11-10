@@ -53,7 +53,10 @@ namespace QuotesUpdate
                 listView1.Items[key].SubItems.Add(ticketInfo.lastDate.ToString());
                 proc.Process(key);
             }
-            catch (Exception ex) { status = ex.Message; }
+            catch (Exception ex) 
+            { 
+                status = ex.Message; 
+            }
             listView1.Items[key].SubItems.Add(status);
 
             Application.DoEvents();

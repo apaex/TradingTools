@@ -19,7 +19,7 @@ internal class ExcelProcessor
         workbook.Activate();
     }
 
-    public ExcelProcessor(string xlsx) 
+    public ExcelProcessor(string xlsx)
     {
         Attach(xlsx);
     }
@@ -91,6 +91,29 @@ internal class ExcelProcessor
 
     public void Process(string cn)
     {
+        //excel.Interactive = false;
+        bool retry = true;
+
+        do
+        {
+            try
+            {
+                _Process(cn);
+                retry = false;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message == "0x800AC472")
+                    System.Threading.Thread.Sleep(1000);
+                else
+                    throw;
+            }
+        } while (retry);
+
+        //excel.Interactive = true;
+    }
+    void _Process(string cn)
+    {
         var sheetData = sheetsData[cn];
         Worksheet sheet = workbook.Sheets[cn];
         ListObject table = sheet.ListObjects[cn];
@@ -100,6 +123,8 @@ internal class ExcelProcessor
         if (cn != TotalSheetName)
             quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
+        while (!excel.Ready) ;
+
         // расширим диапазон
         int addToRange = (DateTime.Now.Date.Year - BeginDate.Year) * 12 + (DateTime.Now.Date.Month - BeginDate.Month) + 1 - table.DataBodyRange.Rows.Count;
 
@@ -108,6 +133,8 @@ internal class ExcelProcessor
             sheet.Range[$"{sheetData.lastRow + 1}:{sheetData.lastRow + addToRange}"].Insert(XlInsertShiftDirection.xlShiftDown);
             table.Resize(range.Resize[range.Rows.Count + addToRange, range.Columns.Count]);
         }
+
+        while (!excel.Ready) ;
 
         // заполним данные (пока в координатах листа, а не таблицы)
         int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
