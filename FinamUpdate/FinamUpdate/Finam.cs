@@ -313,6 +313,19 @@ internal class Finam : QuotesProvider
         { "RU000A0ZZ5R2", 499245 },
     };
 
+    struct TicketInfo
+    {
+        public string cn;
+        public int market;
+        public int quote;
+    }
+
+    Dictionary<string, TicketInfo> ticketMap = new Dictionary<string, TicketInfo>()
+    {
+        { "USDRUB_TOM", new TicketInfo() { cn = "USD000UTSTOM", market = 45, quote = 182400  } },
+        { "MCFTRR", new TicketInfo() { cn = "RI.MCFTRR", market = 91, quote = 465342  } }
+    }; 
+
     string token = "HFeTY2ak8XCUxlaAYDVxwSVlhVDUwxXkpJL31LJkg6fk5mHVBCHTdCc001Xm0fdRYKPXNRHUU0HUVPQAQdPCFeAxhhBh9YfkcKaRdJTgkaSWNRXA0lBxMTQzgnRRsSHUUxXwgVXi4zXxwwYl5rdGJkQD4GRAgUHlVIVRkIIAghCUwRK1FFHUU0HU9VSQRcRD8WZ3U5fzQwL0UrSQUufy4NNTlTEjJIP1Y6";
 
     const string url = "https://export.finam.ru/export.csv";
@@ -321,11 +334,13 @@ internal class Finam : QuotesProvider
     {
         var quotes = new Dictionary<DateTime, Data>();
 
+        TicketInfo ti = (ticketMap.ContainsKey(cn)) ? ticketMap[cn] : new TicketInfo() { market = 1, quote = quote_ids[cn] };
+
         Dictionary<string, string> requestParams = new Dictionary<string, string>();
-        requestParams["market"] = "1";
-        requestParams["em"] = quote_ids[cn].ToString();
+        requestParams["market"] = ti.market.ToString();
+        requestParams["em"] = ti.quote.ToString();
         requestParams["token"] = token;
-        requestParams["code"] = cn;
+        requestParams["code"] = ti.cn;
         requestParams["apply"] = "1";
         requestParams["df"] = from.Day.ToString();
         requestParams["mf"] = (from.Month-1).ToString();
@@ -338,7 +353,7 @@ internal class Finam : QuotesProvider
         requestParams["p"] = Convert.ToInt32(p).ToString();
         requestParams["f"] = "export";
         requestParams["e"] = ".csv";
-        requestParams["cn"] = cn;        //Имя контракта
+        requestParams["cn"] = ti.cn;        //Имя контракта
         requestParams["dtf"] = "1";      //ггггммдд
         requestParams["tmf"] = "1";      //ччммсс
         requestParams["MSOR"] = "1";     //окончания свечи
