@@ -49,9 +49,9 @@ internal class ExcelProcessor
 
                 sheetsData.Add(sheet.Name, new Data());
             }
+            sheetsData.Add(TotalSheetName, new Data());
         }
 
-        sheetsData.Add(TotalSheetName, new Data());
 
         return sheetsData;
     }
@@ -87,29 +87,30 @@ internal class ExcelProcessor
     const string PortfolioSheetName = "Портфель";
     const string DataSheetName = "Данные";
 
-    public void Process(string sheetName)
-    {
-        if (sheetName != TotalSheetName)
-            ProcessQuery(sheetName);
-        else
-            ProcessTotal();
-    }
-    public void ProcessQuery(string cn)
+    DateTime BeginDate = new DateTime(2006, 01, 01);
+
+    public void Process(string cn)
     {
         var sheetData = sheetsData[cn];
         Worksheet sheet = workbook.Sheets[cn];
         ListObject table = sheet.ListObjects[cn];
         Excel.Range range = table.Range;
 
-        var quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
+        Dictionary<DateTime, QuotesProvider.Data>? quotes = null;
+        if (cn != TotalSheetName)
+            quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
-        int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
+        // расширим диапазон
+        int addToRange = (DateTime.Now.Date.Year - BeginDate.Year) * 12 + (DateTime.Now.Date.Month - BeginDate.Month) + 1 - table.DataBodyRange.Rows.Count;
 
-        if (addNeeded > 0)
+        if (addToRange > 0)
         {
-            sheet.Range[$"{sheetData.lastRow + 1}:{sheetData.lastRow + addNeeded}"].Insert(XlInsertShiftDirection.xlShiftDown);
-            table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
+            sheet.Range[$"{sheetData.lastRow + 1}:{sheetData.lastRow + addToRange}"].Insert(XlInsertShiftDirection.xlShiftDown);
+            table.Resize(range.Resize[range.Rows.Count + addToRange, range.Columns.Count]);
         }
+
+        // заполним данные (пока в координатах листа, а не таблицы)
+        int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
 
         for (int i = sheetData.lastRow; i <= sheetData.lastRow + addNeeded; ++i)
         {
@@ -117,40 +118,16 @@ internal class ExcelProcessor
                 sheet.Rows[i - 1].Copy(sheet.Rows[i]);
 
             DateTime dateKey = sheetData.lastDate.AddMonths(i - sheetData.lastRow);
-            QuotesProvider.Data data = quotes[dateKey];
-
             sheet.Cells[i, 2] = dateKey;
-            sheet.Cells[i, 3] = data.open;
-            sheet.Cells[i, 4] = data.high;
-            sheet.Cells[i, 5] = data.low;
-            sheet.Cells[i, 6] = data.close;
+
+            if (quotes != null)
+            {
+                QuotesProvider.Data data = quotes[dateKey];
+                sheet.Cells[i, 3] = data.open;
+                sheet.Cells[i, 4] = data.high;
+                sheet.Cells[i, 5] = data.low;
+                sheet.Cells[i, 6] = data.close;
+            }
         }        
-    }
-
-    public void ProcessTotal()
-    {
-        string cn = TotalSheetName;
-        var sheetData = sheetsData[cn];
-        Worksheet sheet = workbook.Sheets[cn];
-        ListObject table = sheet.ListObjects[cn];
-        Excel.Range range = table.Range;
-
-
-        int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
-
-        if (addNeeded > 0)
-        {
-            sheet.Range[$"{sheetData.lastRow + 1}:{sheetData.lastRow + addNeeded}"].Insert(XlInsertShiftDirection.xlShiftDown);
-            table.Resize(range.Resize[range.Rows.Count + addNeeded, range.Columns.Count]);
-        }
-
-        for (int i = sheetData.lastRow; i <= sheetData.lastRow + addNeeded; ++i)
-        {
-            if (i > sheetData.lastRow)
-                sheet.Rows[i - 1].Copy(sheet.Rows[i]);
-
-            DateTime dateKey = sheetData.lastDate.AddMonths(i - sheetData.lastRow);
-            sheet.Cells[i, 2] = dateKey;
-        }
     }
 }
