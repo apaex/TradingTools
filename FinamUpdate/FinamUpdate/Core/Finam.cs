@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Net;
 
-namespace QuotesUpdate;
+namespace TradingTools;
 
 internal class Finam : QuotesProvider
 {

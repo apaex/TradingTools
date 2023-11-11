@@ -1,6 +1,6 @@
-using static QuotesUpdate.ExcelProcessor;
+using static PASUpdate.ExcelProcessor;
 
-namespace QuotesUpdate
+namespace PASUpdate
 {
     public partial class MainForm : Form
     {

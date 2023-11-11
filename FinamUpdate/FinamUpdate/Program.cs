@@ -1,4 +1,4 @@
-namespace QuotesUpdate
+namespace PASUpdate
 {
     internal static class Program
     {

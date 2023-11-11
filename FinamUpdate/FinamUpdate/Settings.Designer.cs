@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QuotesUpdate {
+namespace PASUpdate {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

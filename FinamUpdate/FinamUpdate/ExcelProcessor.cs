@@ -1,7 +1,8 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using TradingTools;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace QuotesUpdate;
+namespace PASUpdate;
 
 internal class ExcelProcessor
 {

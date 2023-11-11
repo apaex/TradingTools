@@ -1,4 +1,4 @@
-﻿namespace QuotesUpdate;
+﻿namespace TradingTools;
 
 internal abstract class QuotesProvider
 {
