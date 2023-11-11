@@ -124,7 +124,7 @@ internal class ExcelProcessor
         if (cn != TotalSheetName)
             quotes = provider.Load(cn, sheetData.lastDate, DateTime.Now.Date);
 
-        while (!excel.Ready) ;
+        while (!excel.Ready) System.Threading.Thread.Sleep(1000);
 
         // расширим диапазон
         int addToRange = (DateTime.Now.Date.Year - BeginDate.Year) * 12 + (DateTime.Now.Date.Month - BeginDate.Month) + 1 - table.DataBodyRange.Rows.Count;
@@ -135,7 +135,7 @@ internal class ExcelProcessor
             table.Resize(range.Resize[range.Rows.Count + addToRange, range.Columns.Count]);
         }
 
-        while (!excel.Ready) ;
+        while (!excel.Ready) System.Threading.Thread.Sleep(1000);
 
         // заполним данные (пока в координатах листа, а не таблицы)
         int addNeeded = (DateTime.Now.Date.Year - sheetData.lastDate.Year) * 12 + (DateTime.Now.Date.Month - sheetData.lastDate.Month);
