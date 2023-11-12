@@ -1,6 +1,6 @@
-using static PASUpdate.ExcelProcessor;
+using static PASUpdater.ExcelProcessor;
 
-namespace PASUpdate
+namespace PASUpdater
 {
     public partial class MainForm : Form
     {

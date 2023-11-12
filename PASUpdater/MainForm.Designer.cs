@@ -1,4 +1,4 @@
-﻿namespace PASUpdate
+﻿namespace PASUpdater
 {
     partial class MainForm
     {

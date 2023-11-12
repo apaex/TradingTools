@@ -2,7 +2,7 @@
 using TradingTools;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace PASUpdate;
+namespace PASUpdater;
 
 internal class ExcelProcessor
 {
