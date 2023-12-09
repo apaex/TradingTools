@@ -3,7 +3,7 @@ using System.Data;
 using BlotterGen;
 
 
-BlotterBuilder builder = new BlotterBuilder();
+Blotter builder = new Blotter();
 
 using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}"))
 {
