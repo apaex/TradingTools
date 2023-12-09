@@ -65,8 +65,8 @@ internal class Journal
             ot.summ_open += transaction.summ;
             ot.exchange_comission_open += transaction.exchange_comission;
             ot.broker_comission_open += transaction.broker_comission;
-
             ot.AddOpenOrderNum(transaction.order_num);
+
             journal[openTradeIndex] = ot;
         }
         else
@@ -78,8 +78,8 @@ internal class Journal
             ot.exchange_comission_close += transaction.exchange_comission;
             ot.broker_comission_close += transaction.broker_comission;
             ot.datetime_close = Transaction.ToDate(transaction.datetime);
-
             ot.AddCloseOrderNum(transaction.order_num);
+
             journal[openTradeIndex] = ot;
 
             if (q != qty)
