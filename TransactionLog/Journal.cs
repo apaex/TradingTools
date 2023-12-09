@@ -71,7 +71,10 @@ internal class Journal
         }
         else
         {
-            long q = (ot.qty_close + qty != -ot.qty_open) ? -(ot.qty_open + ot.qty_close) : qty;
+            long q = (Math.Abs(ot.qty_close + qty) > Math.Abs(ot.qty_open)) ? -(ot.qty_open + ot.qty_close) : qty;
+            
+            if (Math.Abs(qty) < Math.Abs(q))
+                throw new Exception("Данные в БД некорректны");
 
             ot.qty_close += q;
             ot.summ_close += transaction.summ / qty * q;
@@ -85,11 +88,19 @@ internal class Journal
             if (q != qty)
             {
                 q = qty - q;
-                transaction.qty = q;
-                transaction.summ = transaction.summ / qty * q;
-                transaction.exchange_comission = transaction.exchange_comission / qty * q;
-                transaction.broker_comission = transaction.broker_comission / qty * q;
-                Add(transaction);
+                Transaction tt = new Transaction
+                {
+                    order_num = transaction.order_num,
+                    datetime = transaction.datetime,
+                    account = transaction.account,
+                    class_code = transaction.class_code,
+                    sec_code = transaction.sec_code,
+                    qty = q,
+                    summ = transaction.summ / qty * q,
+                    exchange_comission = transaction.exchange_comission / qty * q,
+                    broker_comission = transaction.broker_comission / qty * q,
+                };
+                Add(tt);
             }
         }
     }
