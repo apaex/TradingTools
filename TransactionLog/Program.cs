@@ -1,10 +1,10 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Data;
-using BlotterGen;
+using JournalGen;
 using System.Reflection;
 
 
-Blotter builder = new Blotter();
+Journal builder = new Journal();
 
 using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}"))
 {

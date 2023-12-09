@@ -1,4 +1,4 @@
-﻿namespace BlotterGen;
+﻿namespace JournalGen;
 
 internal struct Transaction
 {

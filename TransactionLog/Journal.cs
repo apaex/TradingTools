@@ -1,8 +1,8 @@
 ﻿using System.Transactions;
 
-namespace BlotterGen;
+namespace JournalGen;
 
-internal class Blotter
+internal class Journal
 {
     public struct Trade
     {
@@ -36,11 +36,11 @@ internal class Blotter
     }
 
 
-    List<Trade> blotter = new();
+    List<Trade> journal = new();
 
     public void Add(Transaction transaction)
     {
-        int openTradeIndex = blotter.FindIndex(t => 
+        int openTradeIndex = journal.FindIndex(t => 
                 (t.account == transaction.account)
                 && (t.class_code == transaction.class_code)
                 && (t.sec_code == transaction.sec_code) 
@@ -48,18 +48,18 @@ internal class Blotter
 
         if (openTradeIndex < 0)
         {
-            blotter.Add(new Trade
+            journal.Add(new Trade
             {
                 datetime_open = Transaction.ToDate(transaction.datetime),
                 account = transaction.account,
                 class_code = transaction.class_code,
                 sec_code = transaction.sec_code,
             });
-            openTradeIndex = blotter.Count - 1;
+            openTradeIndex = journal.Count - 1;
         }
 
         long qty = transaction.qty;
-        var ot = blotter[openTradeIndex];
+        var ot = journal[openTradeIndex];
 
         if (ot.qty_open == 0 || (Math.Sign(qty) == Math.Sign(ot.qty_open)))
         {
@@ -69,7 +69,7 @@ internal class Blotter
             ot.broker_comission_open += transaction.broker_comission;
 
             ot.AddOpenOrderNum(transaction.order_num);
-            blotter[openTradeIndex] = ot;
+            journal[openTradeIndex] = ot;
         }
         else
         {
@@ -82,7 +82,7 @@ internal class Blotter
             ot.datetime_close = Transaction.ToDate(transaction.datetime);
 
             ot.AddCloseOrderNum(transaction.order_num);
-            blotter[openTradeIndex] = ot;
+            journal[openTradeIndex] = ot;
 
             if (q != qty)
             {
@@ -111,7 +111,7 @@ internal class Blotter
         csv.WriteLine(string.Join(";", row));
 
 
-        foreach (Trade trade in blotter) 
+        foreach (Trade trade in journal) 
         {
             row = new();
 
