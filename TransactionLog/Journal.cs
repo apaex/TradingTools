@@ -1,4 +1,6 @@
-﻿namespace JournalGen;
+﻿using System.Diagnostics.SymbolStore;
+
+namespace JournalGen;
 
 internal class Journal
 {
@@ -105,7 +107,45 @@ internal class Journal
         }
     }
 
+    static Dictionary<string, string> Map(Trade trade)
+    {
+        return new Dictionary<string, string>
+        {
+            { "date", trade.datetime_open.Date.ToString() },
+            { "time", trade.datetime_open.TimeOfDay.ToString() },
+            { "sec_code", trade.sec_code },
+            { "qty_open", trade.qty_open.ToString() },
+            { "sum_open", trade.summ_open.ToString() },
+            { "exchange_comission", (trade.exchange_comission_open + trade.exchange_comission_close).ToString() },
+            { "broker_comission", (trade.broker_comission_open + trade.broker_comission_close).ToString() },
+            //{ "datetime_close", trade.datetime_close.ToString() },
+            { "qty_close", trade.qty_close.ToString() },
+            { "sum_close", trade.summ_close.ToString() },
+        };
 
+    }
+
+    public void WriteCSVTemplate(string filename)
+    {
+        StreamWriter csv = new StreamWriter(filename);
+
+        bool header = true;
+
+        foreach (Trade trade in journal)
+        {
+            if (header)
+            {        
+                var headers = Map(trade).Keys;
+                csv.WriteLine(string.Join(";", headers));
+                header = false;
+            }
+
+            var values = Map(trade).Values;
+            csv.WriteLine(string.Join(";", values));
+        }
+
+        csv.Close();
+    }
     public void WriteCSV(string filename)
     {
         StreamWriter csv = new StreamWriter(filename);
