@@ -8,6 +8,7 @@ internal class Blotter
         public string account;
         public string class_code;
         public string sec_code;
+        public string order_num;
 
         public long qty_open;
         public double summ_open;
@@ -44,6 +45,7 @@ internal class Blotter
 
         long qty = transaction.qty;
         var ot = blotter[openTradeIndex];
+        ot.order_num += transaction.order_num.ToString()+" ";
 
         if (ot.qty_open == 0 || (Math.Sign(qty) == Math.Sign(ot.qty_open)))
         {
