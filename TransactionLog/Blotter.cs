@@ -1,4 +1,6 @@
-﻿namespace BlotterGen;
+﻿using System.Transactions;
+
+namespace BlotterGen;
 
 internal class Blotter
 {
@@ -8,16 +10,28 @@ internal class Blotter
         public string account;
         public string class_code;
         public string sec_code;
-        public string order_num;
 
+        public string order_num_open;
         public long qty_open;
         public double summ_open;
+        public double exchange_comission_open;
+        public double broker_comission_open;
 
-        public double exchange_comission;
-        public double broker_comission;
-
+        public string order_num_close;
         public long qty_close;
         public double summ_close;
+        public double exchange_comission_close;
+        public double broker_comission_close;
+
+        public void AddOpenOrderNum(long order_num)
+        {
+            order_num_open += order_num.ToString() + " ";
+        }
+
+        public void AddCloseOrderNum(long order_num)
+        {
+            order_num_close += order_num.ToString() + " ";
+        }    
     }
 
 
@@ -45,14 +59,15 @@ internal class Blotter
 
         long qty = transaction.qty;
         var ot = blotter[openTradeIndex];
-        ot.order_num += transaction.order_num.ToString()+" ";
 
         if (ot.qty_open == 0 || (Math.Sign(qty) == Math.Sign(ot.qty_open)))
         {
             ot.qty_open += qty;
             ot.summ_open += transaction.summ;
-            ot.exchange_comission += transaction.exchange_comission;
-            ot.broker_comission += transaction.broker_comission;
+            ot.exchange_comission_open += transaction.exchange_comission;
+            ot.broker_comission_open += transaction.broker_comission;
+
+            ot.AddOpenOrderNum(transaction.order_num);
             blotter[openTradeIndex] = ot;
         }
         else
@@ -61,6 +76,10 @@ internal class Blotter
 
             ot.qty_close += q;
             ot.summ_close += transaction.summ / qty * q;
+            ot.exchange_comission_close += transaction.exchange_comission;
+            ot.broker_comission_close += transaction.broker_comission;
+
+            ot.AddCloseOrderNum(transaction.order_num);
             blotter[openTradeIndex] = ot;
 
             if (q != qty)
