@@ -1,6 +1,9 @@
 ﻿using Microsoft.Data.Sqlite;
 using System.Data;
-using TransactionLog;
+using BlotterGen;
+
+
+BlotterBuilder builder = new BlotterBuilder();
 
 using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}"))
 {
@@ -14,24 +17,25 @@ using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}
         ORDER BY datetime ASC
     ";
 
-    TransactionLogBuilder builder = new TransactionLogBuilder();
 
     using (SqliteDataReader reader = command.ExecuteReader())
     {
         while (reader.Read())
         {
-            Trade trade = new Trade();
+            Transaction transaction = new Transaction();
 
-            var props = typeof(Trade).GetFields();
+            var props = typeof(Transaction).GetFields();
 
             foreach (var prop in props)
             {
                 object? o = reader.GetValue(prop.Name);
-                prop.SetValue(trade, o);
+                prop.SetValue(transaction, o);
             }
 
-            builder.Add(trade);
+            builder.Add(transaction);
         }
     }
-    builder.WriteCSV(Path.Combine(Path.GetDirectoryName(Settings.Default.db), "transaction_log.csv"));    
-}
+}    
+
+
+builder.WriteCSV(Path.Combine(Path.GetDirectoryName(Settings.Default.db), "transaction_log.csv"));    

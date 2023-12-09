@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TransactionLog {
+namespace BlotterGen {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
