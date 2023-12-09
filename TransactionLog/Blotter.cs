@@ -25,12 +25,12 @@ internal class Blotter
 
         public void AddOpenOrderNum(long order_num)
         {
-            order_num_open += order_num.ToString() + " ";
+            order_num_open += order_num.ToString() + "|";
         }
 
         public void AddCloseOrderNum(long order_num)
         {
-            order_num_close += order_num.ToString() + " ";
+            order_num_close += order_num.ToString() + "|";
         }    
     }
 
@@ -86,9 +86,9 @@ internal class Blotter
             {
                 q = qty - q;
                 transaction.qty = q;
-                transaction.summ /= qty / q;
-                transaction.exchange_comission /= qty / q;
-                transaction.broker_comission /= qty / q;
+                transaction.summ = transaction.summ / qty * q;
+                transaction.exchange_comission = transaction.exchange_comission / qty * q;
+                transaction.broker_comission = transaction.broker_comission / qty * q;
                 Add(transaction);
             }
         }
@@ -115,7 +115,10 @@ internal class Blotter
 
             foreach (var prop in props)
             {
-                row.Add( prop.GetValue(trade).ToString() ); 
+                if (prop.FieldType == typeof(string))
+                    row.Add( "\"" + prop.GetValue(trade) + "\"");
+                else
+                    row.Add(prop.GetValue(trade).ToString());
             }
 
             csv.WriteLine(string.Join(";", row));
