@@ -6,7 +6,7 @@ internal class Blotter
 {
     public struct Trade
     {
-        public DateTime datetime;
+        public DateTime datetime_open;
         public string account;
         public string class_code;
         public string sec_code;
@@ -17,6 +17,7 @@ internal class Blotter
         public double exchange_comission_open;
         public double broker_comission_open;
 
+        public DateTime datetime_close;
         public string order_num_close;
         public long qty_close;
         public double summ_close;
@@ -49,7 +50,7 @@ internal class Blotter
         {
             blotter.Add(new Trade
             {
-                datetime = Transaction.ToDate(transaction.datetime),
+                datetime_open = Transaction.ToDate(transaction.datetime),
                 account = transaction.account,
                 class_code = transaction.class_code,
                 sec_code = transaction.sec_code,
@@ -78,6 +79,7 @@ internal class Blotter
             ot.summ_close += transaction.summ / qty * q;
             ot.exchange_comission_close += transaction.exchange_comission;
             ot.broker_comission_close += transaction.broker_comission;
+            ot.datetime_close = Transaction.ToDate(transaction.datetime);
 
             ot.AddCloseOrderNum(transaction.order_num);
             blotter[openTradeIndex] = ot;
