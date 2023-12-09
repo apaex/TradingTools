@@ -13,10 +13,10 @@ using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}
     var command = connection.CreateCommand();
     command.CommandText =
     @"
-    SELECT order_num, MIN(datetime) AS datetime, account, class_code, sec_code, price, SUM(qty) AS qty, ABS(SUM(price * qty)) AS summ, SUM(exchange_comission) AS exchange_comission , SUM(broker_comission) AS broker_comission FROM trades
-    GROUP BY order_num
-    ORDER BY datetime ASC
-";
+        SELECT order_num, MIN(datetime) AS datetime, account, class_code, sec_code, price, SUM(qty) AS qty, ABS(SUM(price * qty)) AS summ, SUM(exchange_comission) AS exchange_comission , SUM(broker_comission) AS broker_comission FROM trades
+        GROUP BY order_num
+        ORDER BY datetime ASC
+    ";
 
 
     using (SqliteDataReader reader = command.ExecuteReader())
