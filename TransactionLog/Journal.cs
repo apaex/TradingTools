@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace JournalGen;
+﻿namespace JournalGen;
 
 internal class Journal
 {
