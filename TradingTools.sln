@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PASUpdater", "PASUpdater\PA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JournalGen", "TransactionLog\JournalGen.csproj", "{B586FE69-F997-4A53-B119-85A391DB2FC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormulaFormatter", "FormulaFormatter\FormulaFormatter.csproj", "{B5D66922-90FE-408D-AA89-F064760206AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B586FE69-F997-4A53-B119-85A391DB2FC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B586FE69-F997-4A53-B119-85A391DB2FC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B586FE69-F997-4A53-B119-85A391DB2FC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D66922-90FE-408D-AA89-F064760206AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D66922-90FE-408D-AA89-F064760206AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D66922-90FE-408D-AA89-F064760206AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D66922-90FE-408D-AA89-F064760206AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
