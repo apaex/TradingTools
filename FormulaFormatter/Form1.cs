@@ -9,17 +9,6 @@ namespace FormulaFormatter
             InitializeComponent();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        struct Formula
-        {
-            string Name;
-            List<Formula> Parameters;
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             var map = new Dictionary<string, string>
