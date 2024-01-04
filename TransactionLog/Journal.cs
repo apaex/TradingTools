@@ -41,8 +41,8 @@ internal class Journal
     public void Add(Transaction transaction)
     {
         int openTradeIndex = journal.FindIndex(t => 
-                (t.account == transaction.account)
-                && (t.class_code == transaction.class_code)
+                /*(t.account == transaction.account)
+                &&*/ (t.class_code == transaction.class_code)
                 && (t.sec_code == transaction.sec_code) 
                 && (t.qty_open != -t.qty_close));
 
