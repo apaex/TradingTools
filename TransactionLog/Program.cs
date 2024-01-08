@@ -40,5 +40,7 @@ using (var connection = new SqliteConnection($"Data Source={Settings.Default.db}
 }
 
 
-builder.WriteCSVTemplate(Path.Combine(Path.GetDirectoryName(Settings.Default.db), "journal.csv"));
+string path = Path.Combine(Path.GetDirectoryName(Settings.Default.db), "journal.csv");
+Console.WriteLine("Сохранение "+ path);
+builder.WriteCSVTemplate(path);
 builder.WriteCSV(Path.Combine(Path.GetDirectoryName(Settings.Default.db), "raw.csv"));
